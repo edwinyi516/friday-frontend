@@ -1,0 +1,9 @@
+nav {
+    display: flex;
+    height: fit-content;
+    background-color: #8e8e8e;
+}
+
+#icon {
+    height: 25px;
+}
