@@ -36,7 +36,7 @@ class Member extends Component {
       <ul>
         {this.state.members.map(members =>{
           return (
-            <li>{members.firstName+' '+members.lastName}</li>
+            <li key ={members._id}>{members.firstName+' '+members.lastName}</li>
           )
         })}
       </ul>
