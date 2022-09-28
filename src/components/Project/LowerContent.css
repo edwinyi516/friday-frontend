@@ -1,0 +1,20 @@
+.lowerContent {
+  border: solid 2px green;
+}
+
+.lowerContent_topHalf {
+  display: flex;
+}
+
+.lowerContent_topHalf p {
+  margin: 2px 2px;
+}
+
+.lowerContent_lowerHalf {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lowerContent_lowerHalf > div {
+  width: 50%;
+}
