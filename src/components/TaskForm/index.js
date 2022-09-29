@@ -1,6 +1,4 @@
-import React, {
-  Component
-} from 'react';
+import React, {Component} from 'react';
 //add base URL
 let baseURL = ''
 if (process.env.NODE_ENV === 'development') {
@@ -9,6 +7,25 @@ if (process.env.NODE_ENV === 'development') {
   baseURL = 'Heroku backend URL'
 }
 console.log('current base URL:', baseURL)
+
+// let assignees
+// function getAssignees(){
+//   console.log(baseURL +'./users')
+//   fetch(baseURL + '/users')
+//   .then(res =>{
+//     if(res.status === 200){
+//       return res.json()
+//     }else{
+//       return[]
+//     }
+//   }).then(data=>{
+//     assignees=data
+//     console.log(assignees)
+//     })
+//   return assignees
+// }
+// getAssignees()
+// console.log(assignees)
 //class
 class TaskForm extends Component {
   constructor(props) {
@@ -103,100 +120,27 @@ class TaskForm extends Component {
         })
       })
   }
+
   render() {
-    return ( <
-      form onSubmit = {
-        this.handleSubmit
-      } >
-      <
-      label htmlFor = 'projectId' > Project ID(required): < /label> <
-      input type = 'text'
-      id = 'projectId'
-      name = 'projectId'
-      onChange = {
-        this.handleProjectIdChange
-      }
-      value = {
-        this.state.projectId
-      }
-      /><br / >
-      <
-      label htmlFor = 'taskName' > taskName(required): < /label> <
-      input type = 'text'
-      id = 'taskName'
-      name = 'taskName'
-      onChange = {
-        this.handleTaskNameChange
-      }
-      value = {
-        this.state.taskName
-      }
-      /><br / >
-      <
-      label htmlFor = 'taskDescription' > Description(required): < /label> <
-      input type = 'text'
-      id = 'taskDescription'
-      name = 'taskDescription'
-      onChange = {
-        this.handleDescriptionChange
-      }
-      value = {
-        this.state.description
-      }
-      /><br / >
-      <
-      label htmlFor = 'taskDeadline' > Task Deadline(required): < /label> <
-      input type = 'date'
-      id = 'taskDeadline'
-      name = 'taskDeadline'
-      onChange = {
-        this.handleDeadlineChange
-      }
-      value = {
-        this.state.deadline
-      }
-      /><br / >
-      <
-      label htmlFor = 'creatorID' > CreatorID(required): < /label> <
-      input type = 'text'
-      id = 'creatorID'
-      name = 'creatorID'
-      onChange = {
-        this.handleCreatorIDChange
-      }
-      value = {
-        this.state.creatorID
-      }
-      /><br / >
-      <
-      label htmlFor = 'taskStatus' > Task Status: < /label> <
-      input type = 'text'
-      id = 'taskStatus'
-      name = 'taskStatus'
-      onChange = {
-        this.handleStatusChange
-      }
-      value = {
-        this.state.taskStatus
-      }
-      /><br / >
-      <
-      label htmlFor = 'assigneeID' > assigneeID(required): < /label> <
-      input type = 'text'
-      id = 'assigneeID'
-      name = 'assigneeID'
-      onChange = {
-        this.handleAssigneeIDChange
-      }
-      value = {
-        this.state.assigneeID
-      }
-      /><br / >
-      <
-      input type = 'submit'
-      value = 'Submit' / >
-      <
-      /form>
+    return (
+      <form onSubmit = {this.handleSubmit}>
+        <label htmlFor = 'projectId' > Project ID(required): < /label>
+        <input type = 'text' id = 'projectId' name = 'projectId' onChange = {this.handleProjectIdChange} value = {this.state.projectId}/><br / >
+        <label htmlFor = 'taskName' > taskName(required): </label>
+        <input type = 'text' id = 'taskName' name = 'taskName' onChange = {this.handleTaskNameChange} value = {this.state.taskName}/><br / >
+        <label htmlFor = 'taskDescription' > Description(required): < /label>
+        <input type = 'text' id = 'taskDescription' name = 'taskDescription' onChange = {this.handleDescriptionChange} value = {this.state.description}/><br / >
+        <label htmlFor = 'taskDeadline' > Task Deadline(required): < /label>
+        <input type = 'date' id = 'taskDeadline' name = 'taskDeadline' onChange = {this.handleDeadlineChange} value = {this.state.deadline}/><br / >
+        <label htmlFor = 'creatorID' > CreatorID(required): < /label>
+        <input type = 'text' id = 'creatorID' name = 'creatorID' onChange = {this.handleCreatorIDChange} value = {this.state.creatorID}/><br / >
+        <label htmlFor = 'taskStatus' > Task Status: < /label>
+        <input type = 'text' id = 'taskStatus' name = 'taskStatus' onChange = {this.handleStatusChange} value = {this.state.taskStatus}/><br / >
+        <label htmlFor = 'assigneeID' > assigneeID(required): < /label>
+        <select name='assigneeID' id='assigneeID' onChange = {this.handleAssigneeIDChange} value = {this.state.assigneeID}>
+        </select>
+        <input type = 'submit' value = 'Submit' / >
+      </form>
     )
   }
 }

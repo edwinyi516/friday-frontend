@@ -10,9 +10,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import React from "react";
 //
 import Task from './components/Tasks'
+import Project from './components/Projects'
 function App() {
   return(
+    <>
+    <h1>Project components</h1>
+    <Project />
+    <h1>Task components</h1>
     <Task />
+    </>
+
   )
 }
 // class App extends React.Component {
