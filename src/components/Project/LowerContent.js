@@ -16,7 +16,6 @@ export default class LowerContent extends Component {
         <div className="lowerContent_lowerHalf">
           <TasksList />
           <TaskDetails />
-
           {
             //If Clicked on MEMBERS TAB, render <Members />
           }
