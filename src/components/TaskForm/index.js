@@ -14,7 +14,7 @@ class TaskForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      projectID: '',
+      projectId: '',
       taskName: '',
       description: '',
       deadline: '',
@@ -23,15 +23,17 @@ class TaskForm extends Component {
       assigneeID: ''
     }
   }
-  handleProjectIDChange = (event) => {
+  handleProjectIdChange = (event) => {
     this.setState({
-      projectID: event.target.value
+      projectId: event.target.value
     })
+    console.log(this.state.projectId)
   }
   handleTaskNameChange = (event) => {
     this.setState({
       taskName: event.target.value
     })
+    console.log(this.state.taskName)
   }
   handleDescriptionChange = (event) => {
     this.setState({
@@ -62,10 +64,20 @@ class TaskForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    console.log (this.state.projectId)
+    console.log (JSON.stringify({
+      projectID: this.state.projectId,
+      taskName: this.state.taskName,
+      description: this.state.description,
+      deadline: this.state.deadline,
+      creatorID: this.state.creatorID,
+      status: this.state.status,
+      assigneeID: this.state.assigneeID,
+    }))
     fetch(baseURL + '/tasks', {
         method: 'POST',
         body: JSON.stringify({
-          projectID: this.state.projectID,
+          projectId: this.state.projectId,
           taskName: this.state.taskName,
           description: this.state.description,
           deadline: this.state.deadline,
@@ -81,7 +93,7 @@ class TaskForm extends Component {
         console.log('NewForm - resJson', resJson)
         this.props.handleAddTask(resJson)
         this.setState({
-          projectID: '',
+          projectId: '',
           taskName: '',
           description: '',
           deadline: '',
@@ -97,15 +109,15 @@ class TaskForm extends Component {
         this.handleSubmit
       } >
       <
-      label htmlFor = 'projectID' > Project ID(required): < /label> <
+      label htmlFor = 'projectId' > Project ID(required): < /label> <
       input type = 'text'
-      id = 'projectID'
-      name = 'projectID'
+      id = 'projectId'
+      name = 'projectId'
       onChange = {
-        this.handleProjectIDChange
+        this.handleProjectIdChange
       }
       value = {
-        this.state.projectID
+        this.state.projectId
       }
       /><br / >
       <

@@ -12,12 +12,12 @@ class ProjectForm extends Component {
   constructor(props){
     super(props)
     this.state = {
-      title:'',
-      description:'',
-      deadline:'',
-      status:'',
-      members:[],
-      creatorID:''
+      title: '',
+      description: '',
+      deadline: '',
+      status: '',
+      members: [],
+      creatorID: ''
     }
   }
   handleTitleChange = (event) =>{
