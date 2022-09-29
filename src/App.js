@@ -9,10 +9,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import TaskItem from "./components/Project/TaskItem";
 // import React from "react";
 //
-import TaskForm from './components/TaskForm'
+import Task from './components/Tasks'
 function App() {
   return(
-    <TaskForm />
+    <Task />
   )
 }
 // class App extends React.Component {

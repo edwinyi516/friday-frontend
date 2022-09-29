@@ -40,14 +40,14 @@ class Task extends Component {
   render(){
     return(
       <ul>
-        {this.state.projects.map(projects =>{
+        {this.state.tasks.map(tasks =>{
           return (
-            <li key ={projects._id}>{projects.title}</li>
+            <li key ={tasks._id}>{tasks.taskName}</li>
           )
         })}
-        <ProjectForm handleAddProject={this.handleAddProject}/>
+        <TaskForm handleAddTask={this.handleAddTask}/>
       </ul>
     )
   }
 }
-export default Project
+export default Task
