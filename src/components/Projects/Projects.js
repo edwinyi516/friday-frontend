@@ -10,14 +10,14 @@ if (process.env.NODE_ENV === "development") {
 console.log("current base URL:", baseURL);
 //class member
 
-//Can we change the name of the file and component to ProjectsList?
+//Can we change the name of the file and component to ProjectsList? -LEILANNI
 class Project extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     projects: [],
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      projects: [],
+    };
+  }
   componentDidMount() {
     this.getProject();
   }
@@ -43,8 +43,15 @@ class Project extends Component {
   render() {
     return (
       <ul>
-        {this.state.projects.map((projects) => {
-          return <li key={projects._id}>{projects.title}</li>;
+        {this.state.projects.map((project) => {
+          //changed it from 'projects' to 'project'  -LEILANNI
+          return (
+            <li key={project._id}>
+              <a href={`http://localhost:3000/projects/${project._id}`}>
+                {project.title}
+              </a>
+            </li>
+          );
         })}
         <ProjectForm handleAddProject={this.handleAddProject} />
       </ul>

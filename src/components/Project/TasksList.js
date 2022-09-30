@@ -3,7 +3,13 @@ import TaskItem from "./TaskItem";
 import "./TasksList.css";
 
 export default class TasksList extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    console.log(this.props);
+
     return (
       <div className="tasksList">
         <h2>Tasks:</h2>
