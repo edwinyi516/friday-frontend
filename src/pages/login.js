@@ -7,7 +7,8 @@ export default function Login() {
 
   const login = (event) => {
     event.preventDefault()
-    axios({
+    console.log(loginEmail)
+      axios({
       method: "POST",
       data: {
         email: loginEmail,
@@ -23,8 +24,8 @@ export default function Login() {
     <>
     <h1>Login page</h1>
     <form>
-      <input placeholder="Email" onChange={e => setLoginEmail}></input>
-      <input type="password" placeholder="Password" onChange={e => setLoginPassword}></input>
+      <input placeholder="Email" onChange={e => setLoginEmail(e.target.value)}></input>
+      <input type="password" placeholder="Password" onChange={e => setLoginPassword(e.target.value)}></input>
       <button onClick={login}>Submit</button>
     </form>
     </>
