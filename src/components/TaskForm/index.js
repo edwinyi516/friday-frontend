@@ -8,25 +8,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 console.log('current base URL:', baseURL)
 
-// let assignees
-// function getAssignees(){
-//   console.log(baseURL +'./users')
-//   fetch(baseURL + '/users')
-//   .then(res =>{
-//     if(res.status === 200){
-//       return res.json()
-//     }else{
-//       return[]
-//     }
-//   }).then(data=>{
-//     assignees=data
-//     console.log(assignees)
-//     })
-//   return assignees
-// }
-// getAssignees()
-// console.log(assignees)
 //class
+
 class TaskForm extends Component {
   constructor(props) {
     super(props)
@@ -37,14 +20,31 @@ class TaskForm extends Component {
       deadline: '',
       creatorID: '',
       status: '',
-      assigneeID: ''
+      assigneeID: '',
+      assigneeName: '',
+      members: []
     }
+  }
+  componentDidMount(){
+    this.getMember()
+  }
+  getMember =()=>{
+    fetch(baseURL + '/users')
+    .then(res =>{
+      if(res.status === 200){
+        return res.json()
+      }else{
+        return[]
+      }
+    }).then(data=>{
+      console.log('member data',data)
+      this.setState({members:data})
+    })
   }
   handleProjectIdChange = (event) => {
     this.setState({
-      projectId: event.target.value
+      projectId: event.target.value,
     })
-    console.log(this.state.projectId)
   }
   handleTaskNameChange = (event) => {
     this.setState({
@@ -66,31 +66,40 @@ class TaskForm extends Component {
     this.setState({
       creatorID: event.target.value
     })
-  }
+      }
+
   handleStatusChange = (event) => {
     this.setState({
       status: event.target.value
     })
   }
-  handleAssigneeIDChange = (event) => {
-    this.setState({
-      assigneeID: event.target.value
+  handleAssigneeNameChange = (event) => {
+    const assigneeObj=this.state.members.find((obj)=>{
+      return obj.firstName===event.target.value.split(' ')[0] && obj.lastName===event.target.value.split(' ')[1]
     })
-  }
-
+    // console.log(event.target.value.split(' ')[0])
+    // console.log(event.target.value.split(' ')[1])
+    // console.log(assigneeObj)
+    // console.log(assigneeObj._id)
+    this.setState({
+      assigneeName: event.target.value,
+      assigneeID: assigneeObj._id
+            })
+    }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log (this.state.projectId)
-    console.log (JSON.stringify({
-      projectID: this.state.projectId,
-      taskName: this.state.taskName,
-      description: this.state.description,
-      deadline: this.state.deadline,
-      creatorID: this.state.creatorID,
-      status: this.state.status,
-      assigneeID: this.state.assigneeID,
-    }))
+    // console.log (this.state.assigneeID)
+    // console.log(this.state.assigneeName)
+    // console.log (JSON.stringify({
+    //   projectID: this.state.projectId,
+    //   taskName: this.state.taskName,
+    //   description: this.state.description,
+    //   deadline: this.state.deadline,
+    //   creatorID: this.state.creatorID,
+    //   status: this.state.status,
+    //   assigneeID: this.state.assigneeID,
+    // }))
     fetch(baseURL + '/tasks', {
         method: 'POST',
         body: JSON.stringify({
@@ -136,11 +145,16 @@ class TaskForm extends Component {
         <input type = 'text' id = 'creatorID' name = 'creatorID' onChange = {this.handleCreatorIDChange} value = {this.state.creatorID}/><br / >
         <label htmlFor = 'taskStatus' > Task Status: < /label>
         <input type = 'text' id = 'taskStatus' name = 'taskStatus' onChange = {this.handleStatusChange} value = {this.state.taskStatus}/><br / >
-        <label htmlFor = 'assigneeID' > assigneeID(required): < /label>
-        <select name='assigneeID' id='assigneeID' onChange = {this.handleAssigneeIDChange} value = {this.state.assigneeID}>
-        </select>
-        <input type = 'submit' value = 'Submit' / >
-      </form>
+        <label htmlFor = 'assigneeName' > Assignee Name(required): < /label>
+        <select name='assigneeName' id='assigneeName' onChange = {this.handleAssigneeNameChange} value = {this.state.assigneeName}>
+        {this.state.members.map(members =>{
+          return (
+            <option key ={members._id}>{members.firstName+' '+members.lastName}</option>
+          )
+        })}
+        </select><br / >
+        <input type='submit' value='Submit'/>
+        </form>
     )
   }
 }
