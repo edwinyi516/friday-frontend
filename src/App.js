@@ -9,32 +9,34 @@ import Navbar from "./components/Navbar";
 import TaskItem from "./components/Project/TaskItem";
 import React from "react";
 
-class App extends React.Component {
-  state = {
-    projects: [],
-    users: [],
-    tasks: [],
-  };
 
-  componentDidMount() {
-    fetch("http://localhost:3003/projects").then((data) => {
-      data.json().then((projectsData) => {
-        // console.log(projectsData);
-        this.setState({ projects: projectsData });
-      });
-    });
-  }
-
-  render() {
-    // const projectList = this.state.projects.map((proj) => {
-    //   return (
-    //     <li>
-    //       <Project projectData={proj} />
-    //     </li>
-    //   );
-    // });
-    // console.log(projectList);
-
+function App() {
+// class App extends React.Component {
+//   state = {
+//     projects: [],
+//     users: [],
+//     tasks: [],
+//   };
+//
+//   componentDidMount() {
+//     fetch("http://localhost:3003/projects").then((data) => {
+//       data.json().then((projectsData) => {
+//         // console.log(projectsData);
+//         this.setState({ projects: projectsData });
+//       });
+//     });
+//   }
+//
+//   render() {
+//     // const projectList = this.state.projects.map((proj) => {
+//     //   return (
+//     //     <li>
+//     //       <Project projectData={proj} />
+//     //     </li>
+//     //   );
+//     // });
+//     // console.log(projectList);
+//
     return (
       <div className="app">
         <Navbar />
@@ -51,6 +53,6 @@ class App extends React.Component {
       </div>
     );
   }
-}
+
 
 export default App;
