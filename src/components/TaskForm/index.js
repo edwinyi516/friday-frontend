@@ -46,13 +46,12 @@ class TaskForm extends Component {
   handleProjectIdChange = (event) => {
     this.setState({
       projectId: event.target.value,
-    })
+        })
   }
   handleTaskNameChange = (event) => {
     this.setState({
       taskName: event.target.value
     })
-    console.log(this.state.taskName)
   }
   handleDescriptionChange = (event) => {
     this.setState({
@@ -77,17 +76,18 @@ class TaskForm extends Component {
   }
   handleAssigneeNameChange = (event) => {
     //find member ID based on name chosen from drop down
-    const assigneeObj=this.state.allMembers.find((obj)=>{
-      return obj.firstName===event.target.value.split(' ')[0] && obj.lastName===event.target.value.split(' ')[1]
-    })
+  let selectedAssigneeID = Array.from(event.target.selectedOptions,option=>option.id).toString()
+    // const assigneeObj=this.state.allMembers.find((obj)=>{
+    //   return obj.firstName===event.target.value.split(' ')[0] && obj.lastName===event.target.value.split(' ')[1]
+    // })
     // console.log(event.target.value.split(' ')[0])
     // console.log(event.target.value.split(' ')[1])
     // console.log(assigneeObj)
     // console.log(assigneeObj._id)
     this.setState({
       assigneeName: event.target.value,
-      assigneeID: assigneeObj._id
-            })
+      assigneeID: selectedAssigneeID
+    })
     }
 
   handleSubmit = (event) => {
@@ -152,7 +152,7 @@ class TaskForm extends Component {
         <select name='assigneeName' id='assigneeName' onChange = {this.handleAssigneeNameChange} value = {this.state.assigneeName}>
         {this.state.allMembers.map(members =>{
           return (
-            <option key ={members._id}>{members.firstName+' '+members.lastName}</option>
+            <option key ={members._id} id ={members._id}>{members.firstName+' '+members.lastName}</option>
           )
         })}
         </select><br / >
