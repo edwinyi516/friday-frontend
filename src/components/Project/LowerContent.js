@@ -1,8 +1,7 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component } from "react";
 import "./LowerContent.css";
 import TasksList from "./TasksList";
 import TaskDetails from "./TaskDetails";
-import { useParams } from "react-router-dom";
 import Members from "../Members/Members";
 
 class LowerContent extends Component {
@@ -12,7 +11,6 @@ class LowerContent extends Component {
       tab: "tasks",
       tasks: null,
       task: {},
-      members: null,
       createMode: false,
     };
   }
@@ -99,7 +97,9 @@ class LowerContent extends Component {
           )}
           {/* down here, we wnt to pass just ONE task from the task array */}
 
-          {this.state.members && this.state.tab === "members" && <Members />}
+          {this.state.tab === "members" && (
+            <Members members={this.props.members} />
+          )}
         </div>
       </div>
     );
