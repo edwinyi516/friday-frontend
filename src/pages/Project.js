@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import LowerContent from "../components/Project/LowerContent";
 import UpperContent from "../components/Project/UpperContent";
 import "./Project.css";
@@ -14,17 +14,7 @@ function Project(props) {
   //second element: madeup Name for the function that will update the state
   //useState() is not madeup, it is a HOOK that we use to create and update our state
   //we pass the value of NULL as a default value so it isnt empty (just to be explicit about the starting state), but it works without as well.
-  const [projectState, updateStateFunction] = useState(() => {
-    return {
-      _id: null,
-      title: null,
-      description: null,
-      deadline: null,
-      status: null,
-      members: [],
-      creatorId: null,
-    };
-  }); //useState needs to be imported
+  const [projectState, updateStateFunction] = useState(null); //useState needs to be imported
 
   // console.log(props);
   const routeParams = useParams();
@@ -37,20 +27,18 @@ function Project(props) {
   //first parameter has to be a callback function, second parameter an empty array for our case
 
   useEffect(() => {
-    fetch(`${props.baseUrl}/projects/${routeParams.id}`).then((res) => {
-      return res.json().then((data) => {
-        console.log(data);
-
-        updateStateFunction(data);
-      });
+    fetch(`${props.baseURL}/projects/${routeParams.id}`).then((res) => {
+      res.json().then((data) => updateStateFunction(data));
     });
-  }, []);
+  }, [routeParams.id]);
 
   return (
     <div className="projectContainer">
       {/* below we're passing down the state as props */}
       <UpperContent {...projectState} />
-      <LowerContent {...projectState} baseUrl={props.baseUrl} />
+      {projectState !== null ? (
+        <LowerContent {...projectState} baseURL={props.baseURL} />
+      ) : null}
     </div>
   );
 }

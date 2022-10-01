@@ -3,13 +3,14 @@ import "./TaskItem.css";
 
 export default class TaskItem extends Component {
   render() {
+    console.log(this.props);
+
     return (
       <div className="taskItem">
-        <h4>Task Name</h4>
+        <h4>Name: {this.props.taskName}</h4>
         <ul>
-          <li>Subject</li>
-          <li>Deadline</li>
-          <li>details button</li>
+          {/* <li>Subject</li>  <----- DO WE WANT A SUBJECT? */}
+          <li>Deadline: {this.props.deadline}</li>
         </ul>
         <p>Delete</p>
         <div className="avatar">

@@ -3,16 +3,16 @@ import "./TaskDetails.css";
 
 export default class TaskDetails extends Component {
   render() {
+    console.log(this.props);
     return (
       <div className="taskDetails">
-        <h2>Task Name</h2>
+        <h2>Task Name: {this.props.taskName}</h2>
         <ul>
-          <li>Project Name</li>
-          <li>Description</li>
-          <li>Deadline</li>
-          <li>Assignee</li>
-          <li>Status</li>
-          <li>Members</li>
+          <li>Project Name:</li>
+          <li>Description: {this.props.description}</li>
+          <li>Deadline: {this.props.deadline}</li>
+          <li>Assignee: </li>
+          <li>Status: {this.props.status}</li>
         </ul>
 
         <div className="taskDetails_editAndDelete">

@@ -1,39 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import TaskItem from "./TaskItem";
 import "./TasksList.css";
 
-export default class TasksList extends Component {
-  constructor(props) {
-    super(props);
-  }
+function TasksList(props) {
+  console.log(props);
 
-  render() {
-    console.log(this.props);
-
-    return (
-      <div className="tasksList">
-        <h2>Tasks:</h2>
-        <ul>
-          <li>
-            <TaskItem />
-          </li>
-          <li>
-            <TaskItem />
-          </li>
-          <li>
-            <TaskItem />
-          </li>
-          <li>
-            <TaskItem />
-          </li>
-          <li>
-            <TaskItem />
-          </li>
-          <li>
-            <TaskItem />
-          </li>
-        </ul>
-      </div>
-    );
-  }
+  return (
+    <div className="tasksList">
+      <h2>Tasks:</h2>
+      <ul>
+        {props.tasksArray.map((task) => {
+          return (
+            <li
+              key={task._id}
+              onClick={() => {
+                props.handleClick(task._id);
+              }}
+            >
+              <TaskItem {...task} />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }
+
+export default TasksList;

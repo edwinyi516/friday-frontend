@@ -1,12 +1,12 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Project from "./pages/Project";
 import Navbar from "./components/Navbar";
-import TaskItem from "./components/Project/TaskItem";
+// import TaskItem from "./components/Project/TaskItem";
 import React from "react";
 import ProjectsList from "./components/Projects/Projects";
 
@@ -31,10 +31,13 @@ class App extends React.Component {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route exact path="/projects" element={<ProjectsList />} />
+            <Route
+              path="/projects"
+              element={<ProjectsList baseURL={baseURL} />}
+            />
             <Route
               path="/projects/:id"
-              element={<Project baseUrl={baseURL} />} //passing baseURL as prop to use it on Project.js
+              element={<Project baseURL={baseURL} />} //passing baseURL as prop to use it on Project.js
             />
           </Routes>
         </main>
