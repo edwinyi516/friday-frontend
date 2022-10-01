@@ -16,14 +16,14 @@ class App extends React.Component {
     tasks: [],
   };
 
-  componentDidMount() {
-    fetch("http://localhost:3003/projects").then((data) => {
-      data.json().then((projectsData) => {
-        // console.log(projectsData);
-        this.setState({ projects: projectsData });
-      });
-    });
-  }
+  // componentDidMount() {
+  //   fetch("http://localhost:3003/projects").then((data) => {
+  //     data.json().then((projectsData) => {
+  //       // console.log(projectsData);
+  //       this.setState({ projects: projectsData });
+  //     });
+  //   });
+  // }
 
   render() {
     // const projectList = this.state.projects.map((proj) => {
