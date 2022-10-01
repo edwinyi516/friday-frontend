@@ -8,7 +8,7 @@ import Project from "./pages/Project";
 import Navbar from "./components/Navbar";
 // import TaskItem from "./components/Project/TaskItem";
 import React from "react";
-import ProjectsList from "./components/Projects/Projects";
+import ProjectsList from "./components/Projects";
 
 let baseURL = "";
 if (process.env.NODE_ENV === "development") {

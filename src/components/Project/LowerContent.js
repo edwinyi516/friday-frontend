@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./LowerContent.css";
 import TasksList from "./TasksList";
 import TaskDetails from "./TaskDetails";
-import Members from "../Members/Members";
+import Members from "../Members";
 
 class LowerContent extends Component {
   constructor(props) {
