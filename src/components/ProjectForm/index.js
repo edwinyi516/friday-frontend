@@ -17,9 +17,28 @@ class ProjectForm extends Component {
       deadline: '',
       status: '',
       members: [],
-      creatorID: ''
+      creatorID: '',
+      allMembers: []
     }
   }
+  //get member data for dropdown list
+  componentDidMount(){
+    this.getAllMember()
+  }
+  getAllMember =()=>{
+    fetch(baseURL + '/users')
+    .then(res =>{
+      if(res.status === 200){
+        return res.json()
+      }else{
+        return[]
+      }
+    }).then(data=>{
+      console.log('member data',data)
+      this.setState({allMembers:data})
+    })
+  }
+  //set up onchange function for each input
   handleTitleChange = (event) =>{
     this.setState ({
       title: event.target.value
@@ -44,9 +63,19 @@ class ProjectForm extends Component {
     })
   }
   handleMembersChange = (event) =>{
-    this.setState ({
-      members: event.target.value
+
+    // console.log(event.target.value)
+    //find member obj based on name chosen from drop down
+    const assigneeObj=this.state.allMembers.find((obj)=>{
+      return obj.firstName===event.target.value.split(' ')[0] && obj.lastName===event.target.value.split(' ')[1]
     })
+    // console.log(assigneeObj)
+    // console.log(assigneeObj._id)
+    //
+      this.setState ({
+      members: this.state.members.push(assigneeObj._id)
+    })
+    console.log(this.state.members)
   }
   handleCreatorIDChange = (event) =>{
     this.setState ({
@@ -56,7 +85,7 @@ class ProjectForm extends Component {
 
   handleSubmit = (event) =>{
     event.preventDefault()
-    // console.log(this.state.title)
+    console.log(this.state.members)
     // console.log(this.state.description)
     // console.log(JSON.stringify({title:this.state.title,description:this.state.description}))
     fetch(baseURL + '/projects',{
@@ -98,9 +127,16 @@ class ProjectForm extends Component {
       <label htmlFor='projectStatus'>Project Status: </label>
       <input type='text' id='projectStatus' name='projectStatus' onChange={this.handleStatusChange} value={this.state.status} /><br />
       <label htmlFor='projectMembers'>Project Members: </label>
-      <input type='text' id='projectMembers' name='projectMembers' onChange={this.handleMembersChange} value={this.state.members} /><br />
+      <select name='projectMembers' id='projectMembers' onChange = {this.handleMembersChange} >
+      {this.state.allMembers.map(members =>{
+        return (
+          <option key ={members._id}>{members.firstName+' '+members.lastName}</option>
+        )
+      })}
+      </select><br / >
       <label htmlFor='projectCreatorID'>Project Creator ID(required): </label>
       <input type='text' id='projectCreatorID' name='projectCreatorID' onChange={this.handleCreatorIDChange} value={this.state.creatorID} /><br />
+
       <input type='submit' value='Submit'/>
       </form>
     )

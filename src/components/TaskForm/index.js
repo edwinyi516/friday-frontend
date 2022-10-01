@@ -22,13 +22,14 @@ class TaskForm extends Component {
       status: '',
       assigneeID: '',
       assigneeName: '',
-      members: []
+      allMembers: []
     }
   }
+  //get member data for dropdown list
   componentDidMount(){
-    this.getMember()
+    this.getAllMembers()
   }
-  getMember =()=>{
+  getAllMembers =()=>{
     fetch(baseURL + '/users')
     .then(res =>{
       if(res.status === 200){
@@ -38,9 +39,10 @@ class TaskForm extends Component {
       }
     }).then(data=>{
       console.log('member data',data)
-      this.setState({members:data})
+      this.setState({allMembers:data})
     })
   }
+  //set up onchange function for each input
   handleProjectIdChange = (event) => {
     this.setState({
       projectId: event.target.value,
@@ -74,7 +76,8 @@ class TaskForm extends Component {
     })
   }
   handleAssigneeNameChange = (event) => {
-    const assigneeObj=this.state.members.find((obj)=>{
+    //find member ID based on name chosen from drop down
+    const assigneeObj=this.state.allMembers.find((obj)=>{
       return obj.firstName===event.target.value.split(' ')[0] && obj.lastName===event.target.value.split(' ')[1]
     })
     // console.log(event.target.value.split(' ')[0])
@@ -147,7 +150,7 @@ class TaskForm extends Component {
         <input type = 'text' id = 'taskStatus' name = 'taskStatus' onChange = {this.handleStatusChange} value = {this.state.taskStatus}/><br / >
         <label htmlFor = 'assigneeName' > Assignee Name(required): < /label>
         <select name='assigneeName' id='assigneeName' onChange = {this.handleAssigneeNameChange} value = {this.state.assigneeName}>
-        {this.state.members.map(members =>{
+        {this.state.allMembers.map(members =>{
           return (
             <option key ={members._id}>{members.firstName+' '+members.lastName}</option>
           )
