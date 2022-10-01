@@ -19,7 +19,7 @@ class Member extends Component {
     this.getMember();
   }
   getMember = () => {
-    fetch(baseURL + "/users")
+    fetch(`${baseURL}/users/many/users/?`) //MADE A CHANGE -LEILANNI
       .then((res) => {
         if (res.status === 200) {
           return res.json();
