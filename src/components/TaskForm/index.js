@@ -14,7 +14,7 @@ class TaskForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      projectId: '',
+      projectID: '',
       taskName: '',
       description: '',
       deadline: '',
@@ -43,9 +43,9 @@ class TaskForm extends Component {
     })
   }
   //set up onchange function for each input
-  handleProjectIdChange = (event) => {
+  handleProjectIDChange = (event) => {
     this.setState({
-      projectId: event.target.value,
+      projectID: event.target.value,
         })
   }
   handleTaskNameChange = (event) => {
@@ -106,7 +106,7 @@ class TaskForm extends Component {
     fetch(baseURL + '/tasks', {
         method: 'POST',
         body: JSON.stringify({
-          projectId: this.state.projectId,
+          projectID: this.state.projectID,
           taskName: this.state.taskName,
           description: this.state.description,
           deadline: this.state.deadline,
@@ -122,7 +122,7 @@ class TaskForm extends Component {
         console.log('NewForm - resJson', resJson)
         this.props.handleAddTask(resJson)
         this.setState({
-          projectId: '',
+          projectID: '',
           taskName: '',
           description: '',
           deadline: '',
@@ -136,8 +136,8 @@ class TaskForm extends Component {
   render() {
     return (
       <form onSubmit = {this.handleSubmit}>
-        <label htmlFor = 'projectId' > Project ID(required): < /label>
-        <input type = 'text' id = 'projectId' name = 'projectId' onChange = {this.handleProjectIdChange} value = {this.state.projectId}/><br / >
+        <label htmlFor = 'projectID' > Project ID(required): < /label>
+        <input type = 'text' id = 'projectID' name = 'projectID' onChange = {this.handleProjectIDChange} value = {this.state.projectID}/><br / >
         <label htmlFor = 'taskName' > taskName(required): </label>
         <input type = 'text' id = 'taskName' name = 'taskName' onChange = {this.handleTaskNameChange} value = {this.state.taskName}/><br / >
         <label htmlFor = 'taskDescription' > Description(required): < /label>
