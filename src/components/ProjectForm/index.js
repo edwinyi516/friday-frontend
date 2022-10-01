@@ -63,19 +63,11 @@ class ProjectForm extends Component {
     })
   }
   handleMembersChange = (event) =>{
-
-    // console.log(event.target.value)
-    //find member obj based on name chosen from drop down
-    const assigneeObj=this.state.allMembers.find((obj)=>{
-      return obj.firstName===event.target.value.split(' ')[0] && obj.lastName===event.target.value.split(' ')[1]
-    })
-    // console.log(assigneeObj)
-    // console.log(assigneeObj._id)
-    //
+    let selectedMembers = Array.from(event.target.selectedOptions, option=>option.id)
+    console.log(selectedMembers)
       this.setState ({
-      members: this.state.members.push(assigneeObj._id)
+      members: selectedMembers
     })
-    console.log(this.state.members)
   }
   handleCreatorIDChange = (event) =>{
     this.setState ({
@@ -126,11 +118,11 @@ class ProjectForm extends Component {
       <input type='date' id='projectDeadline' name='projectDeadline' onChange={this.handleDeadlineChange} value={this.state.deadline} /><br />
       <label htmlFor='projectStatus'>Project Status: </label>
       <input type='text' id='projectStatus' name='projectStatus' onChange={this.handleStatusChange} value={this.state.status} /><br />
-      <label htmlFor='projectMembers'>Project Members: </label>
-      <select name='projectMembers' id='projectMembers' onChange = {this.handleMembersChange} >
+      <label htmlFor='projectMembers'>Project Members (hold ctrl/cmd to select multiple): </label>
+      <select name='projectMembers' id='projectMembers' onChange = {this.handleMembersChange} multiple>
       {this.state.allMembers.map(members =>{
         return (
-          <option key ={members._id}>{members.firstName+' '+members.lastName}</option>
+          <option key ={members._id} id ={members._id}>{members.firstName+' '+members.lastName}</option>
         )
       })}
       </select><br / >
