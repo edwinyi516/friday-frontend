@@ -12,14 +12,33 @@ class ProjectForm extends Component {
   constructor(props){
     super(props)
     this.state = {
-      title:'',
-      description:'',
-      deadline:'',
-      status:'',
-      members:[],
-      creatorID:''
+      title: '',
+      description: '',
+      deadline: '',
+      status: '',
+      members: [],
+      creatorID: '',
+      allMembers: []
     }
   }
+  //get member data for dropdown list
+  componentDidMount(){
+    this.getAllMember()
+  }
+  getAllMember =()=>{
+    fetch(baseURL + '/users')
+    .then(res =>{
+      if(res.status === 200){
+        return res.json()
+      }else{
+        return[]
+      }
+    }).then(data=>{
+      console.log('member data',data)
+      this.setState({allMembers:data})
+    })
+  }
+  //set up onchange function for each input
   handleTitleChange = (event) =>{
     this.setState ({
       title: event.target.value
@@ -44,8 +63,10 @@ class ProjectForm extends Component {
     })
   }
   handleMembersChange = (event) =>{
-    this.setState ({
-      members: event.target.value
+    let selectedMembers = Array.from(event.target.selectedOptions, option=>option.id)
+    console.log(selectedMembers)
+      this.setState ({
+      members: selectedMembers
     })
   }
   handleCreatorIDChange = (event) =>{
@@ -56,7 +77,7 @@ class ProjectForm extends Component {
 
   handleSubmit = (event) =>{
     event.preventDefault()
-    // console.log(this.state.title)
+    console.log(this.state.members)
     // console.log(this.state.description)
     // console.log(JSON.stringify({title:this.state.title,description:this.state.description}))
     fetch(baseURL + '/projects',{
@@ -97,10 +118,17 @@ class ProjectForm extends Component {
       <input type='date' id='projectDeadline' name='projectDeadline' onChange={this.handleDeadlineChange} value={this.state.deadline} /><br />
       <label htmlFor='projectStatus'>Project Status: </label>
       <input type='text' id='projectStatus' name='projectStatus' onChange={this.handleStatusChange} value={this.state.status} /><br />
-      <label htmlFor='projectMembers'>Project Members: </label>
-      <input type='text' id='projectMembers' name='projectMembers' onChange={this.handleMembersChange} value={this.state.members} /><br />
+      <label htmlFor='projectMembers'>Project Members (hold ctrl/cmd to select multiple): </label>
+      <select name='projectMembers' id='projectMembers' onChange = {this.handleMembersChange} multiple>
+      {this.state.allMembers.map(members =>{
+        return (
+          <option key ={members._id} id ={members._id}>{members.firstName+' '+members.lastName}</option>
+        )
+      })}
+      </select><br / >
       <label htmlFor='projectCreatorID'>Project Creator ID(required): </label>
       <input type='text' id='projectCreatorID' name='projectCreatorID' onChange={this.handleCreatorIDChange} value={this.state.creatorID} /><br />
+
       <input type='submit' value='Submit'/>
       </form>
     )
