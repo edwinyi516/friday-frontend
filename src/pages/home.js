@@ -7,6 +7,6 @@ export default class Home extends Component {
       <>
         <div>Welcome to Friday.com</div>
       </>
-    );
+    )
   }
 }
