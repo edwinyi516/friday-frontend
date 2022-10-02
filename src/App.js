@@ -8,9 +8,7 @@ import Project from "./pages/Project";
 import Navbar from "./components/Navbar";
 // import TaskItem from "./components/Project/TaskItem";
 import React from "react";
-import ProjectsList from "./components/Projects/Projects";
-
-//=======================================================================
+import ProjectsList from "./components/Projects";
 
 let baseURL = "";
 if (process.env.NODE_ENV === "development") {
@@ -19,8 +17,7 @@ if (process.env.NODE_ENV === "development") {
   baseURL = "Heroku backend URL";
 }
 
-//=======================================================================
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <div className="app">
@@ -45,5 +42,3 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;

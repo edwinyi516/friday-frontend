@@ -3,6 +3,7 @@ import "./index.css"
 import icon from "../../assets/images/friday-icon.png"
 
 export default class Navbar extends Component {
+
   render() {
     return (
       <>

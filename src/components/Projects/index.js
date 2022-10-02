@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import ProjectForm from "../ProjectForm/ProjectForm.js";
-
+import React, { Component } from 'react';
+import ProjectForm from '../ProjectForm'
 //add base URL
 // let baseURL = "";
 // if (process.env.NODE_ENV === "development") {
