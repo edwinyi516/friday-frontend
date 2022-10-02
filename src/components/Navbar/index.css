@@ -1,9 +1,12 @@
-nav {
-    display: flex;
-    height: fit-content;
-    background-color: #8e8e8e;
-}
-
 #icon {
     height: 25px;
 }
+#friday {
+  font-size: 25px;
+  font-weight:bold;
+  color:black;
+}
+.container-fluid{
+  padding-right: 100px;
+  display: flex;
+  }
