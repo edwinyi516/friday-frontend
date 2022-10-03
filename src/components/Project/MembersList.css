@@ -1,0 +1,7 @@
+.membersList {
+  border: 2px solid orange;
+}
+
+.membersList > ul {
+  list-style: none;
+}

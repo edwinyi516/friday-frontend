@@ -19,12 +19,8 @@ class Member extends Component {
     this.getMember();
   }
   getMember = () => {
-<<<<<<< HEAD:src/components/Members/Members.js
-    fetch(`${baseURL}/users/many/users/?`) //MADE A CHANGE -LEILANNI
-=======
     fetch(baseURL + "/users")
-    // fetch(`${baseURL}/users/many/users/?`)
->>>>>>> f570877789378b609210c1af7eb41704006bb182:src/components/Members/index.js
+      // fetch(`${baseURL}/users/many/users/?`)
       .then((res) => {
         if (res.status === 200) {
           return res.json();
