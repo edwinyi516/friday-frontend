@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./MembersList.css";
-import MemberItem from "./MemberItem";
+import "./ProjectMembers.css";
+import ProjectMember from "./ProjectMember";
 
-export default class MembersList extends Component {
+export default class ProjectMembers extends Component {
   constructor(props) {
     super(props);
     this.state = { members: [] };
@@ -27,7 +27,7 @@ export default class MembersList extends Component {
   render() {
     console.log(this.props);
     return (
-      <div className="membersList">
+      <div className="projectMembersList">
         <h2> Members List</h2>
         <button
           onClick={() => {
@@ -41,7 +41,7 @@ export default class MembersList extends Component {
             this.state.members.map((member) => {
               return (
                 <li key={member._id}>
-                  <MemberItem
+                  <ProjectMember
                     {...member}
                     handleRemoveMember={this.props.handleRemoveMember}
                   />

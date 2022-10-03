@@ -1,18 +1,23 @@
 import React from "react";
+import "./AllMembersList.css";
 import MemberItem from "./MemberItem";
 
 function AllMembersList(props) {
   console.log(props);
 
   return (
-    <div>
-      <h2>AllMembersList</h2>
+    <div className="allMembersList">
       <ul>
-        {props.addMembersList.length !== 0 &&
-          props.addMembersList.map((member) => {
+        {props.notProjectMembersYet.length !== 0 &&
+          props.notProjectMembersYet.map((member) => {
             return (
-              <li key={member._id}>
-                <MemberItem {...member} />
+              <li className="memberItemLi" key={member._id}>
+                <MemberItem
+                  {...member}
+                  handleSubmitNewMemberToProject={
+                    props.handleSubmitNewMemberToProject
+                  }
+                />
               </li>
             );
           })}
