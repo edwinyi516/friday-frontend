@@ -1,17 +1,19 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import UsersTodaysTasks from '../components/UsersTodaysTasks'
 import UsersUpcomingTasks from '../components/UsersUpcomingTasks'
 
 export default function Dashboard() {
   const [user, setUser] = useState("")
   
-  axios({
-    method: "GET",
-    withCredentials: true,
-    url: "http://localhost:3003/user"
-  })
-  .then((res) => setUser(res.data))
+  useEffect(() => {
+    axios({
+      method: "GET",
+      withCredentials: true,
+      url: "http://localhost:3003/user"
+    })
+    .then((res) => setUser(res.data))
+  }, [])
 
   return (
     <>
@@ -22,7 +24,7 @@ export default function Dashboard() {
           <UsersTodaysTasks user={user} />
           <UsersUpcomingTasks user={user} />
         </>
-      ) : <h2>Loading...</h2>
+      ) : <h2>No logged in user</h2>
     }
     </>
   )
