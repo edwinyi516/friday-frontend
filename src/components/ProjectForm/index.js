@@ -19,7 +19,7 @@ class ProjectForm extends Component {
       deadline: '',
       status: '',
       members: [],
-      creatorID: '',
+      creatorID: this.props.uesr._id,
       allMembers: []
     }
   }
@@ -71,11 +71,11 @@ class ProjectForm extends Component {
       members: selectedMembers
     })
   }
-  handleCreatorIDChange = (event) =>{
-    this.setState ({
-      creatorID: event.target.value
-    })
-  }
+  // handleCreatorIDChange = (event) =>{
+  //   this.setState ({
+  //     creatorID: event.target.value
+  //   })
+  // }
 
   handleSubmit = (event) =>{
     event.preventDefault()
@@ -128,8 +128,8 @@ class ProjectForm extends Component {
         )
       })}
       </select><br/>
-      <label htmlFor='projectCreatorID'>Project Creator ID(required): </label>
-      <input type='text' id='projectCreatorID' name='projectCreatorID' onChange={this.handleCreatorIDChange} value={this.state.creatorID} /><br/>
+      // <label htmlFor='projectCreatorID'>Project Creator ID(required): </label>
+      // <input type='text' id='projectCreatorID' name='projectCreatorID' onChange={this.handleCreatorIDChange} value={this.state.creatorID} /><br/>
 
       <input type='submit' value='Submit'/>
       </form>
