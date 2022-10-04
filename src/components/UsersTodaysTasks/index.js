@@ -16,11 +16,11 @@ export default class UsersTodaysTasks extends Component {
         }
     }
     componentDidMount() {
-        this.getTodaysTasks()
+        this.getUsersTodaysTasks()
     }
 
-    getTodaysTasks = () => {
-        fetch(baseURL + '/tasks')
+    getUsersTodaysTasks = () => {
+        fetch(baseURL + `/tasks/user/${this.props.user._id}/today`)
             .then(res => {
                 if(res.status === 200) {
                     return res.json()
@@ -29,20 +29,22 @@ export default class UsersTodaysTasks extends Component {
                     return []
                 }
             }).then(data => {
-                this.setState({ tasks: data })
+                console.log("tasks data", data)
+                this.setState({ todaysTasks: data })
             })
     }
 
     render() {
         return (
             <>
+                <h3>Today's Tasks</h3>
                 <ul>
-                    <li>Today's Tasks</li>
-                    {/* {this.state.tasks.filter(tasks => tasks.assigneeID === req.user.id).map(filteredTasks => (
-                        <li>
-                            {filteredTasks}
-                        </li>
-                    ))} */}
+                    {/* <li>{this.props.user._id}</li> */}
+                    {
+                        this.state.todaysTasks.map((task, i) => (
+                            <li key={i}>{task.taskName}</li>
+                        ))
+                    }
                 </ul>
             </>
         )

@@ -16,8 +16,14 @@ export default function Dashboard() {
   return (
     <>
     <h1>Welcome back, {user.firstName}</h1>
-      <UsersTodaysTasks />
-      <UsersUpcomingTasks />
+    {
+      user ? (
+        <>
+          <UsersTodaysTasks user={user} />
+          <UsersUpcomingTasks user={user} />
+        </>
+      ) : <h2>Loading...</h2>
+    }
     </>
   )
 }
