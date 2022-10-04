@@ -148,6 +148,7 @@ class TaskForm extends Component {
           name="projectID"
           onChange={this.handleProjectIDChange}
           value={this.state.projectID}
+          hidden
         />
         <br />
         <label htmlFor="taskName"> taskName(required): </label>

@@ -17,6 +17,7 @@ class LowerContent extends Component {
       activateAddMemberMode: false,
       notProjectMembersYet: null,
       members: [],
+      editTaskMode: false,
     };
   }
 
@@ -208,7 +209,10 @@ class LowerContent extends Component {
                   />
                 </div>
               ) : (
-                <TaskDetails {...this.state.task} />
+                <TaskDetails
+                  {...this.state.task}
+                  members={this.state.members}
+                />
               )}
             </>
           )}
