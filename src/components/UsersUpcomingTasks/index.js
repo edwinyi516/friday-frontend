@@ -39,7 +39,6 @@ export default class UsersUpcomingTasks extends Component {
             <>
                 <h3>Upcoming Tasks</h3>
                 <ul>
-                    {/* <li>{this.props.user._id}</li> */}
                     {
                         this.state.upcomingTasks.map((task, i) => (
                             <li key={i}>{task.taskName}</li>

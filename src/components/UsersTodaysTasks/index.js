@@ -39,7 +39,6 @@ export default class UsersTodaysTasks extends Component {
             <>
                 <h3>Today's Tasks</h3>
                 <ul>
-                    {/* <li>{this.props.user._id}</li> */}
                     {
                         this.state.todaysTasks.map((task, i) => (
                             <li key={i}>{task.taskName}</li>
