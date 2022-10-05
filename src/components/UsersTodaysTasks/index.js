@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-// let baseURL =''
-// if (process.env.NODE_ENV ==='development') {
-//   baseURL = 'http://localhost:3003'
-// }
-// else {
-//   baseURL = "https://friday-project-mgmt-backend.herokuapp.com"
-// }
-let baseURL = process.env.REACT_APP_BACKEND_URL
+let baseURL =''
+if (process.env.NODE_ENV ==='development') {
+  baseURL = 'http://localhost:3003'
+}
+else {
+  baseURL = "https://friday-project-mgmt-backend.herokuapp.com"
+}
+// let baseURL = process.env.REACT_APP_BACKEND_URL
 
 export default class UsersTodaysTasks extends Component {
     constructor(props) {

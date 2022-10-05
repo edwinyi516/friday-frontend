@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import axios from "axios"
 
-// let baseURL = "";
-// if (process.env.NODE_ENV === "development") {
-//   baseURL = "http://localhost:3003";
-// } else {
-//   baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
-// }
-let baseURL = "https://friday-project-mgmt-backend.herokuapp.com"
+let baseURL = "";
+if (process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:3003";
+} else {
+  baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
+}
+// let baseURL = "https://friday-project-mgmt-frontend.herokuapp.com"
 
 export default function Login() {
   const [loginEmail, setLoginEmail] = useState("")
