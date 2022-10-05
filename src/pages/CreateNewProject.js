@@ -17,7 +17,7 @@ function CreateNewProject() {
     axios({
       method: "GET",
       withCredentials: true,
-      url: baseURL + "/user"
+      url: baseURL + "user"
     })
     .then((res) => setUser(res.data))
   }, [])
