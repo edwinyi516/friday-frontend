@@ -7,7 +7,7 @@ import axios from "axios"
 // } else {
 //   baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
 // }
-let baseURL = "https://friday-project-mgmt-frontend.herokuapp.com"
+let baseURL = "https://friday-project-mgmt-backend.herokuapp.com"
 
 export default function Login() {
   const [loginEmail, setLoginEmail] = useState("")
