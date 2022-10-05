@@ -1,9 +1,9 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Dashboard from "./pages/dashboard";
+import Login from "./pages/login";
+import Signup from "./pages/signup";
 import Project from "./pages/Project";
 import Navbar from "./components/Navbar";
 // import TaskItem from "./components/Project/TaskItem";
