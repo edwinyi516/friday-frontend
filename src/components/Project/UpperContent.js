@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./UpperContent.css";
 
 export default function UpperContent(props) {

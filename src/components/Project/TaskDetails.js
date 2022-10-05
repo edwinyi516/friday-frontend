@@ -12,7 +12,7 @@ export default class TaskDetails extends Component {
   }
 
   activateEditMode = () => {
-    const membersIds = this.props.members;
+    // const membersIds = this.props.members;
     //   .map((member) => {
     //     return `member=${member}&`;
     //   })

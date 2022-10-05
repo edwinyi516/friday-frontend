@@ -30,7 +30,7 @@ export default class Home extends Component {
           </div>
           <div className="container">
           <img className="containerImg" id="sales" src={sales} alt="img"/>
-          <div>Sales & CRM</div>
+          <div>Sales and CRM</div>
           </div>
           <div className="container">
           <img className="containerImg" id="taskManagement" src={taskManagement} alt="img"/>
