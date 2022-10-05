@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import ProjectForm from '../ProjectForm'
 //add base URL
-// let baseURL = "";
-// if (process.env.NODE_ENV === "development") {
-//   baseURL = "http://localhost:3003";
-// } else {
-//   baseURL = "Heroku backend URL";
-// }
-// console.log("current base URL:", baseURL);
+let baseURL = "";
+if (process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:3003";
+} else {
+  baseURL = "Heroku backend URL";
+}
+console.log("current base URL:", baseURL);
 //class member
 
 class Project extends Component {
