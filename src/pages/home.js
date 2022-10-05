@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 // import Navbar from "../components/Navbar";
-import creative from "../assets/images/creative.png"
-import marketing from "../assets/images/marketing.png"
-import projectManagement from "../assets/images/project_management.png"
-import sales from "../assets/images/sales.png"
-import taskManagement from "../assets/images/task_management.png"
-import operation from "../assets/images/operation.png"
+import creative from "./assets/images/creative.png"
+import marketing from "./assets/images/marketing.png"
+import projectManagement from "./assets/images/project_management.png"
+import sales from "./assets/images/sales.png"
+import taskManagement from "./assets/images/task_management.png"
+import operation from "./assets/images/operation.png"
 
 
 
@@ -13,7 +13,7 @@ export default class Home extends Component {
   render() {
     return (
       <>
-      {/* <div id="homepageBody">
+      <div id="homepageBody">
         <div id='intro'>A platform built for an innovative way of collabration</div>
         <div id='containers'>
           <div className="container" >
@@ -48,7 +48,7 @@ export default class Home extends Component {
       <a href="#" className="fa fa-youtube"></a>
       <a href="#" className="fa fa-instagram"></a>
       <div>All Rights Reserved © friday.com</div>
-      </footer> */}
+      </footer>
       </>
     )
   }
