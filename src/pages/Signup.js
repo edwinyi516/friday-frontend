@@ -25,7 +25,7 @@ export default function Signup() {
         password: registerPassword
       },
       withCredentials: true,
-      url: baseURL + "/register"
+      url: baseURL + "register"
     })
     .then((res) => console.log(res))
   }
