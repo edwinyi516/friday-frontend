@@ -13,7 +13,7 @@ export default class Home extends Component {
   render() {
     return (
       <>
-      <div id="homepageBody">
+      {/* <div id="homepageBody">
         <div id='intro'>A platform built for an innovative way of collabration</div>
         <div id='containers'>
           <div className="container" >
@@ -48,7 +48,7 @@ export default class Home extends Component {
       <a href="#" className="fa fa-youtube"></a>
       <a href="#" className="fa fa-instagram"></a>
       <div>All Rights Reserved © friday.com</div>
-      </footer>
+      </footer> */}
       </>
     )
   }
