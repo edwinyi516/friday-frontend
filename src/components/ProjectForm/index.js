@@ -19,7 +19,7 @@ class ProjectForm extends Component {
       deadline: '',
       status: '',
       members: [],
-      creatorID: this.props.uesr._id,
+      creatorID: this.props.user.id,
       allMembers: []
     }
   }

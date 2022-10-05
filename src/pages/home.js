@@ -16,37 +16,37 @@ export default class Home extends Component {
       <div id="homepageBody">
         <div id='intro'>A platform built for an innovative way of collabration</div>
         <div id='containers'>
-          <div class="container" >
-          <img class="containerImg" id="creative" src={creative} alt="img" />
+          <div className="container" >
+          <img className="containerImg" id="creative" src={creative} alt="img" />
           <div>Software development</div>
           </div>
-          <div class="container">
-          <img class="containerImg" id="marketing" src={marketing} alt="img"/>
+          <div className="container">
+          <img className="containerImg" id="marketing" src={marketing} alt="img"/>
           <div>Marketing</div>
           </div>
-          <div class="container">
-          <img class="containerImg" id="projectManagement" src={projectManagement} alt="img"/>
+          <div className="container">
+          <img className="containerImg" id="projectManagement" src={projectManagement} alt="img"/>
           <div>Project management</div>
           </div>
-          <div class="container">
-          <img class="containerImg" id="sales" src={sales} alt="img"/>
+          <div className="container">
+          <img className="containerImg" id="sales" src={sales} alt="img"/>
           <div>Sales & CRM</div>
           </div>
-          <div class="container">
-          <img class="containerImg" id="taskManagement" src={taskManagement} alt="img"/>
+          <div className="container">
+          <img className="containerImg" id="taskManagement" src={taskManagement} alt="img"/>
           <div>Task Managment</div>
           </div>
-          <div class="container">
-          <img class="containerImg" id="operation" src={operation} alt="img"/>
+          <div className="container">
+          <img className="containerImg" id="operation" src={operation} alt="img"/>
           <div>Operation</div>
           </div>
         </div>
       </div>
       <footer>
-      <a href="#" class="fa fa-facebook"></a>
-      <a href="#" class="fa fa-twitter"></a>
-      <a href="#" class="fa fa-youtube"></a>
-      <a href="#" class="fa fa-instagram"></a>
+      <a href="#" className="fa fa-facebook"></a>
+      <a href="#" className="fa fa-twitter"></a>
+      <a href="#" className="fa fa-youtube"></a>
+      <a href="#" className="fa fa-instagram"></a>
       <div>All Rights Reserved © friday.com</div>
       </footer>
       </>
