@@ -40,7 +40,6 @@ class LowerContent extends Component {
 
   handleClick = (taskId) => {
     const selectedTask = this.state.tasks.find((task) => task._id === taskId);
-    // console.log(selectedTask);
     this.setState({ task: selectedTask });
   };
 

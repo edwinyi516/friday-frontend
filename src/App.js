@@ -1,13 +1,12 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Dashboard from "./pages/dashboard";
-import Login from "./pages/login";
-import Signup from "./pages/signup";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Project from "./pages/Project";
 import CreateNewProject from "./pages/CreateNewProject"
 import Navbar from "./components/Navbar";
-// import TaskItem from "./components/Project/TaskItem";
 import React from "react";
 import ProjectsList from "./components/Projects";
 
@@ -15,7 +14,7 @@ let baseURL = "";
 if (process.env.NODE_ENV === "development") {
   baseURL = "http://localhost:3003";
 } else {
-  baseURL = "Heroku backend URL";
+  baseURL = "friday-project-mgmt-backend.herokuapp.com";
 }
 
 export default class App extends React.Component {

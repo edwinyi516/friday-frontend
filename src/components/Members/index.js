@@ -4,7 +4,7 @@ let baseURL = "";
 if (process.env.NODE_ENV === "development") {
   baseURL = "http://localhost:3003";
 } else {
-  baseURL = "Heroku backend URL";
+  baseURL = "friday-project-mgmt-backend.herokuapp.com";
 }
 console.log("current base URL:", baseURL);
 //class member
@@ -20,7 +20,6 @@ class Member extends Component {
   }
   getMember = () => {
     fetch(baseURL + "/users")
-      // fetch(`${baseURL}/users/many/users/?`)
       .then((res) => {
         if (res.status === 200) {
           return res.json();

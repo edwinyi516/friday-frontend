@@ -10,7 +10,7 @@ export default function Dashboard() {
     axios({
       method: "GET",
       withCredentials: true,
-      url: "http://localhost:3003/user"
+      url: "friday-project-mgmt-backend.herokuapp.com/user"
     })
     .then((res) => setUser(res.data))
   }, [])
