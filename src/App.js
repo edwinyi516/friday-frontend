@@ -1,9 +1,9 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/HOUSE";
-import Dashboard from "./pages/DASHDASH";
-import Login from "./pages/LOGGGG";
-import Signup from "./pages/SIGNNNNN";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Project from "./pages/Project";
 import CreateNewProject from "./pages/CreateNewProject"
 import Navbar from "./components/Navbar";
