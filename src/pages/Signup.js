@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 import axios from "axios"
 
+let baseURL = "";
+if (process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:3003";
+} else {
+  baseURL = "friday-project-mgmt-backend.herokuapp.com";
+}
+
 export default function Signup() {
   const [registerFirstName, setRegisterFirstName] = useState("")
   const [registerLastName, setRegisterLastName] = useState("")
@@ -17,7 +24,7 @@ export default function Signup() {
         password: registerPassword
       },
       withCredentials: true,
-      url: "http://localhost:3003/register"
+      url: baseURL + "/register"
     })
     .then((res) => console.log(res))
   }
