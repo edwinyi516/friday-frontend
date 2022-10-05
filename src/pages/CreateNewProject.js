@@ -2,6 +2,13 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import ProjectForm from "../components/ProjectForm";
 
+let baseURL = "";
+if (process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:3003";
+} else {
+  baseURL = "friday-project-mgmt-backend.herokuapp.com";
+}
+
 function CreateNewProject() {
   const [user, setUser] = useState("")
 
@@ -9,7 +16,7 @@ function CreateNewProject() {
     axios({
       method: "GET",
       withCredentials: true,
-      url: "friday-project-mgmt-backend.herokuapp.com/user"
+      url: baseURL + "/user"
     })
     .then((res) => setUser(res.data))
   }, [])
