@@ -7,7 +7,6 @@ export default function Login() {
 
   const login = (event) => {
     event.preventDefault()
-    console.log(loginEmail)
       axios({
       method: "POST",
       data: {

@@ -19,6 +19,7 @@ if (process.env.NODE_ENV === "development") {
 
 export default class App extends React.Component {
   render() {
+
     return (
       <div className="app">
         <Navbar />
