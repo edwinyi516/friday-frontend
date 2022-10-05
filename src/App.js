@@ -10,13 +10,13 @@ import Navbar from "./components/Navbar";
 import React from "react";
 import ProjectsList from "./components/Projects";
 
-let baseURL = "";
-if (process.env.NODE_ENV === "development") {
-  baseURL = "http://localhost:3003";
-} else {
-  baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
-}
-// let baseURL = process.env.REACT_APP_BACKEND_URL
+// let baseURL = "";
+// if (process.env.NODE_ENV === "development") {
+//   baseURL = "http://localhost:3003";
+// } else {
+//   baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
+// }
+let baseURL = process.env.REACT_APP_BACKEND_URL
 
 export default class App extends React.Component {
   render() {
