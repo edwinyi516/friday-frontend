@@ -16,11 +16,11 @@ export default class UsersUpcomingTasks extends Component {
         }
     }
     componentDidMount() {
-        this.getUpcomingTasks()
+        this.getUsersUpcomingTasks()
     }
 
-    getUpcomingTasks = () => {
-        fetch(baseURL + '/tasks')
+    getUsersUpcomingTasks = () => {
+        fetch(baseURL + `/tasks/user/${this.props.user._id}/upcoming`)
             .then(res => {
                 if(res.status === 200) {
                     return res.json()
@@ -29,20 +29,21 @@ export default class UsersUpcomingTasks extends Component {
                     return []
                 }
             }).then(data => {
-                this.setState({ tasks: data })
+                console.log("tasks data", data)
+                this.setState({ upcomingTasks: data })
             })
     }
 
     render() {
         return (
             <>
+                <h3>Upcoming Tasks</h3>
                 <ul>
-                    <li>Upcoming Tasks</li>
-                    {/* {this.state.tasks.filter(tasks => tasks.assigneeID === req.user.id).map(filteredTasks => (
-                        <li>
-                            {filteredTasks}
-                        </li>
-                    ))} */}
+                    {
+                        this.state.upcomingTasks.map((task, i) => (
+                            <li key={i}>{task.taskName}</li>
+                        ))
+                    }
                 </ul>
             </>
         )

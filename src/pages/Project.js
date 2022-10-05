@@ -33,7 +33,7 @@ function Project(props) {
   }, [routeParams.id]);
 
   return (
-    <div className="projectContainer">
+    <div className="projectDetailsContainer">
       {/* below we're passing down the state as props */}
       <UpperContent {...projectState} />
       {projectState !== null ? (

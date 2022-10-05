@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import "./LowerContent.css";
 import TasksList from "./TasksList";
 import TaskDetails from "./TaskDetails";
-import Members from "../Members";
+import ProjectMembers from "./ProjectMembers";
+import AllMembersList from "./AllMembersList";
+import TaskForm from "../TaskForm";
 
 class LowerContent extends Component {
   constructor(props) {
@@ -12,15 +14,25 @@ class LowerContent extends Component {
       tasks: null,
       task: {},
       createMode: false,
+      activateAddMemberMode: false,
+      notProjectMembersYet: null,
+      members: [],
+      editTaskMode: false,
     };
   }
 
   componentDidMount() {
+    console.log(this.props);
+
     fetch(`${this.props.baseURL}/tasks/project/${this.props._id}`).then(
       (res) => {
         res.json().then((data) => {
           console.log(data);
-          this.setState({ tasks: data, task: data[0] });
+          this.setState({
+            tasks: data,
+            task: data[0],
+            members: this.props.members,
+          });
         });
       }
     );
@@ -37,11 +49,104 @@ class LowerContent extends Component {
     this.setState({ tab: clickedTab });
   };
 
-  // handleAddTaskFormButton = () => {
-  //   this.setState((previousState) => {
-  //     previousState.createMode = !previousState.createMode;
-  //   });
-  // };
+  handleRemoveMember = (memberId) => {
+    const currentMembersArray = this.props.members;
+
+    const newMembersArray = currentMembersArray.filter((member) => {
+      return member !== memberId;
+    });
+
+    const fetchOptions = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ members: newMembersArray }),
+    };
+
+    fetch(
+      `${this.props.baseURL}/projects/${this.props._id}`,
+      fetchOptions
+    ).then((res) =>
+      res.json().then((data) => {
+        console.log(data);
+        window.location.reload();
+      })
+    );
+  };
+
+  handleAddMember = () => {
+    console.log(`adding new member`);
+    //fetch all users
+
+    const currentMembers = {};
+    console.log(this.props);
+    this.props.members.forEach((member) => {
+      currentMembers[member] = member;
+    });
+    console.log(currentMembers); //object of current Members
+
+    fetch(this.props.baseURL + "/users").then((res) => {
+      res.json().then((data) => {
+        console.log(data);
+        const filteredMembers = data.filter((user) => {
+          return user._id !== currentMembers[user._id];
+        });
+        console.log(filteredMembers);
+        this.setState({ notProjectMembersYet: filteredMembers });
+      });
+    });
+
+    this.setState({ activateAddMemberMode: true }); //activates BACKDROP
+  };
+
+  cancelAddMember = (event) => {
+    console.log("nevermind");
+    // event.stopPropagation();
+    this.setState({ activateAddMemberMode: false });
+  };
+
+  handleSubmitNewMemberToProject = (memberId) => {
+    console.log(`adding ${memberId} to current project`);
+    const currentMembers = this.state.members;
+    currentMembers.push(memberId);
+    console.log(currentMembers);
+
+    const fetchOptions = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ members: currentMembers }),
+    };
+
+    fetch(
+      `${this.props.baseURL}/projects/${this.props._id}`,
+      fetchOptions
+    ).then((res) => {
+      res.json().then((data) => {
+        console.log(data);
+        window.location.reload();
+      });
+    });
+  };
+
+  activateCreateTaskForm = () => {
+    console.log("creating new task");
+    this.setState({ createMode: true });
+  };
+
+  handleAddTask = (task) => {
+    console.log(`FAKE handleAddTask is being called `);
+    const currentTasks = this.state.tasks;
+    currentTasks.push(task);
+    this.setState({ tasks: currentTasks });
+  };
+
+  deactivateCreateTaskForm = () => {
+    console.log("creatorMode: false");
+    this.setState({ createMode: false });
+  };
 
   render() {
     return (
@@ -76,7 +181,7 @@ class LowerContent extends Component {
               <button
                 id="createTask"
                 onClick={() => {
-                  this.handleAddTaskFormButton();
+                  this.activateCreateTaskForm();
                 }}
               >
                 Create Task
@@ -89,16 +194,70 @@ class LowerContent extends Component {
 
               {/* if (this.state.createMode === true) render(<TaskForm />) else, render <TaskDetials />*/}
               {this.state.createMode === true ? (
-                <h2>task form</h2>
+                <div className="taskFormContainer">
+                  <button
+                    className="cancelTaskForm"
+                    onClick={() => {
+                      this.deactivateCreateTaskForm();
+                    }}
+                  >
+                    Cancel
+                  </button>
+                  <TaskForm
+                    projectId={this.props._id}
+                    handleAddTask={this.handleAddTask}
+                  />
+                </div>
               ) : (
-                <TaskDetails {...this.state.task} />
+                <TaskDetails
+                  {...this.state.task}
+                  members={this.state.members}
+                />
               )}
             </>
           )}
           {/* down here, we wnt to pass just ONE task from the task array */}
 
           {this.state.tab === "members" && (
-            <Members members={this.props.members} />
+            <>
+              {this.state.activateAddMemberMode && (
+                <div
+                  className="addMemberBackdrop"
+                  // onClick={(e) => {
+                  //   this.cancelAddMember(e);
+                  // }}
+                >
+                  <div className="addOrCancelMember">
+                    <p>Which member would you like to add?</p>
+
+                    <button
+                      className="cancel"
+                      onClick={() => {
+                        this.cancelAddMember();
+                      }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+
+                  {this.state.notProjectMembersYet && (
+                    <AllMembersList
+                      notProjectMembersYet={this.state.notProjectMembersYet}
+                      handleSubmitNewMemberToProject={
+                        this.handleSubmitNewMemberToProject
+                      }
+                    />
+                  )}
+                </div>
+              )}
+
+              <ProjectMembers
+                baseURL={this.props.baseURL}
+                members={this.props.members}
+                handleRemoveMember={this.handleRemoveMember}
+                handleAddMember={this.handleAddMember}
+              />
+            </>
           )}
         </div>
       </div>

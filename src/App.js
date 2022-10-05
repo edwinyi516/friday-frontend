@@ -1,9 +1,9 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Dashboard from "./pages/dashboard";
+import Login from "./pages/login";
+import Signup from "./pages/signup";
 import Project from "./pages/Project";
 import CreateNewProject from "./pages/CreateNewProject"
 import Navbar from "./components/Navbar";
@@ -20,6 +20,7 @@ if (process.env.NODE_ENV === "development") {
 
 export default class App extends React.Component {
   render() {
+
     return (
       <div className="app">
         <Navbar />
