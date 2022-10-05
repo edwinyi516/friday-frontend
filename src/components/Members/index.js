@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-// //add base URL
-// let baseURL = "";
-// if (process.env.NODE_ENV === "development") {
-//   baseURL = "http://localhost:3003";
-// } else {
-//   baseURL = "friday-project-mgmt-backend.herokuapp.com";
-// }
-let baseURL = process.env.REACT_APP_BACKEND_URL
+//add base URL
+let baseURL = "";
+if (process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:3003";
+} else {
+  baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
+}
+// let baseURL = process.env.REACT_APP_BACKEND_URL
 
 console.log("current base URL:", baseURL);
 //class member
