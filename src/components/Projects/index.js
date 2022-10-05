@@ -52,8 +52,7 @@ class Project extends Component {
             </li>
           );
         })}
-        <ProjectForm handleAddProject={this.handleAddProject} />
-      </ul>
+        </ul>
     );
   }
 }

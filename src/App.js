@@ -5,6 +5,7 @@ import Dashboard from "./pages/dashboard";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Project from "./pages/Project";
+import CreateNewProject from "./pages/CreateNewProject"
 import Navbar from "./components/Navbar";
 // import TaskItem from "./components/Project/TaskItem";
 import React from "react";
@@ -37,6 +38,7 @@ export default class App extends React.Component {
               path="/projects/:id"
               element={<Project baseURL={baseURL} />} //passing baseURL as prop to use it on Project.js
             />
+            <Route path="/new" element={<CreateNewProject/>} />
           </Routes>
         </main>
       </div>
