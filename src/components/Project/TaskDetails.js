@@ -6,25 +6,34 @@ export default class TaskDetails extends Component {
     super(props);
     this.state = {
       editMode: false,
-      taskName: this.props.taskName,
       currentMembers: [],
+      taskName: this.props.taskName,
+      taskDescrption: this.props.description,
+      taskDeadline: this.props.deadline,
+      taskAssigneeId: this.props.assigneeID,
+      taskStatus: this.props.status,
+      projectID: this.props.projectID,
     };
   }
 
   activateEditMode = () => {
-    // const membersIds = this.props.members;
-    //   .map((member) => {
-    //     return `member=${member}&`;
-    //   })
-    //   .join("");
+    const membersIds = this.props.members;
+    const memberIdQuery = membersIds
+      .map((member) => {
+        return `member=${member}&`;
+      })
+      .join("");
 
-    // fetch(`${this.props.baseURL}/users/many/users?${membersIds}`).then(
-    //   (res) => {
-    //     res.json().then((data) => {
-    //       this.setState({ /*currentMembers: data,*/ editMode: true });
-    //     });
-    //   }
-    // );
+    console.log(memberIdQuery);
+    console.log(this.props.baseURL);
+
+    fetch(`${this.props.baseURL}/users/many/users?${memberIdQuery}`).then(
+      (res) => {
+        res.json().then((data) => {
+          this.setState({ currentMembers: data, editMode: true });
+        });
+      }
+    );
   };
 
   cancelEditMode = () => {
@@ -35,11 +44,51 @@ export default class TaskDetails extends Component {
     e.preventDefault();
     console.log("Handling Task Edit Submit --------------------");
     console.log(e.target);
+    const updatedTask = {
+      projectID: this.state.projectID,
+      taskName: this.state.taskName,
+      description: this.state.taskDescrption,
+      deadline: this.state.taskDeadline,
+      status: this.state.taskStatus,
+      assigneeID: this.state.taskAssigneeId,
+    };
+
+    console.log(updatedTask);
+
+    console.log(this.props.baseURL);
+
+    fetch(`${this.props.baseURL}/tasks/${this.props._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedTask),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        window.location.reload();
+      });
   };
 
   handleChange = (e) => {
+    // console.log(e);
+    console.log(e.target.id);
     console.log(e.target.value);
-    this.setState({ taskName: e.target.value });
+    this.setState({ [e.target.id]: e.target.value });
+  };
+
+  handleDelete = (e) => {
+    console.log(`Deleting task with id of ${this.props._id}`);
+
+    fetch(`${this.props.baseURL}/tasks/${this.props._id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        window.location.reload();
+      });
   };
 
   render() {
@@ -47,6 +96,7 @@ export default class TaskDetails extends Component {
     let content = this.state.editMode ? (
       <div className="taskDetails">
         <h2>EDIT MODE</h2>
+
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="taskName">Task Name: </label>
           <input
@@ -55,16 +105,55 @@ export default class TaskDetails extends Component {
             name="taskName"
             value={this.state.taskName}
           />
-          <label htmlFor="description">Description: </label>
+          <br></br>
+
+          <label htmlFor="taskDescrption">Description: </label>
           <input
-            id="description"
-            name="description"
-            value={this.props.description}
+            onChange={this.handleChange}
+            id="taskDescrption"
+            name="taskDescrption"
+            value={this.state.taskDescrption}
           />
-          <li>Deadline: {this.props.deadline}</li>
-          <li>Assignee ID: {this.props.assigneeID} </li>
-          <label htmlFor="status">Status: </label>
-          <input id="status" name="status" value={this.props.status} />
+
+          <br></br>
+
+          <label htmlFor="taskDeadline">taskDeadline: </label>
+          <input
+            onChange={this.handleChange}
+            id="taskDeadline"
+            name="taskDeadline"
+            value={this.state.taskDeadline}
+            type="date"
+          />
+
+          <br></br>
+
+          <label htmlFor="taskAsignee">Assignee: </label>
+          <select
+            name="taskAssigneeId"
+            id="taskAssigneeId"
+            onChange={this.handleChange}
+          >
+            {this.state.currentMembers.map((member) => {
+              return (
+                <option
+                  selected={member._id === this.props.assigneeID ? true : false}
+                  value={member._id}
+                >{`${member.firstName} ${member.lastName}`}</option>
+              );
+            })}
+          </select>
+
+          <br></br>
+
+          <label htmlFor="taskStatus">Status: </label>
+          <input
+            onChange={this.handleChange}
+            id="taskStatus"
+            name="taskStatus"
+            value={this.state.taskStatus}
+          />
+
           <button type="submit">SUBMIT</button>
         </form>
         <button onClick={this.cancelEditMode}>CANCEL</button>
@@ -82,7 +171,7 @@ export default class TaskDetails extends Component {
         <div className="taskDetails_editAndDelete">
           <p onClick={this.activateEditMode}>Edit</p>
           <p>|</p>
-          <p>Delete</p>
+          <p onClick={this.handleDelete}>Delete</p>
         </div>
       </div>
     );

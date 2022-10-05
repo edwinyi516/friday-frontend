@@ -211,6 +211,7 @@ class LowerContent extends Component {
                 <TaskDetails
                   {...this.state.task}
                   members={this.state.members}
+                  baseURL={this.props.baseURL}
                 />
               )}
             </>
