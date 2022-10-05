@@ -22,7 +22,7 @@ export default function Login() {
         password: loginPassword
       },
       withCredentials: true,
-      url: baseURL + "login"
+      url: baseURL + "/login"
     })
     .then((res) => console.log(res))
   }
