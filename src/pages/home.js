@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 // import Navbar from "../components/Navbar";
-import creative from "./assets/images/creative.png"
-import marketing from "./assets/images/marketing.png"
-import projectManagement from "./assets/images/project_management.png"
-import sales from "./assets/images/sales.png"
-import taskManagement from "./assets/images/task_management.png"
-import operation from "./assets/images/operation.png"
+import creative from "../assets/images/creative.png"
+import marketing from "../assets/images/marketing.png"
+import projectManagement from "../assets/images/project_management.png"
+import sales from "../assets/images/sales.png"
+import taskManagement from "../assets/images/task_management.png"
+import operation from "../assets/images/operation.png"
 
 
 
