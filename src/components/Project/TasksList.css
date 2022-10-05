@@ -1,0 +1,17 @@
+.tasksList {
+  border: 2px dotted black;
+  /* overflow: hidden; */
+}
+
+.tasksList > ul {
+  /* height: calc(100% - 55px); */
+  /* overflow-x: hidden; */
+  height: 57vh;
+  overflow-y: scroll;
+  margin-top: 0;
+}
+
+.tasksList > h2 {
+  box-shadow: 0 4px 2px -2px grey;
+  margin-bottom: 5px;
+}

@@ -1,0 +1,12 @@
+#icon {
+    height: 25px;
+}
+#friday {
+  font-size: 25px;
+  font-weight:bold;
+  color:black;
+}
+.container-fluid{
+  padding-right: 100px;
+  display: flex;
+  }
