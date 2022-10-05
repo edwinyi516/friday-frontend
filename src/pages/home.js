@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 import creative from "../assets/images/creative.png"
 import marketing from "../assets/images/marketing.png"
 import projectManagement from "../assets/images/project_management.png"
