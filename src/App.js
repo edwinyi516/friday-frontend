@@ -16,6 +16,7 @@ if (process.env.NODE_ENV === "development") {
 } else {
   baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
 }
+console.log(process.env.NODE_ENV)
 // let baseURL = process.env.REACT_APP_BACKEND_URL
 
 export default class App extends React.Component {
