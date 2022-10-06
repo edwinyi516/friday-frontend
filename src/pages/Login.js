@@ -1,23 +1,46 @@
 import React, { useState } from 'react'
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+let baseURL = "";
+if (process.env.NODE_ENV === "development") {
+  baseURL = "http://localhost:3003";
+} else {
+  baseURL = "http://friday-project-mgmt-backend.herokuapp.com";
+}
+
+export default function Login(props) {
+  const navigate = useNavigate()
   const [loginEmail, setLoginEmail] = useState("")
   const [loginPassword, setLoginPassword] = useState("")
-
   const login = (event) => {
-    event.preventDefault()
-      axios({
-      method: "POST",
-      data: {
-        email: loginEmail,
-        password: loginPassword
-      },
-      withCredentials: true,
-      url: "http://localhost:3003/login"
-    })
-    .then((res) => console.log(res))
+  event.preventDefault()
+    axios({
+    method: "POST",
+    data: {
+      email: loginEmail,
+      password: loginPassword
+    },
+    withCredentials: true,
+    url: baseURL + "/login"
+  })
+  .then((res) => {
+    localStorage.setItem(
+      'userData',
+      JSON.stringify(
+        {
+          userData:res.data,
+        }
+      )
+
+    )
+    props.handleLogIn(res.data)
   }
+    )
+  .then(()=>{
+    navigate ('/dashboard')
+  })
+}
 
   return (
     <>

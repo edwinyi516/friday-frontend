@@ -3,6 +3,9 @@ import "./index.css"
 import icon from "../../assets/images/friday-icon.png"
 
 export default class Navbar extends Component {
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
@@ -27,6 +30,8 @@ export default class Navbar extends Component {
                         <li><a className="dropdown-item" href="/dashboard">Dashboard</a></li>
                         <li><a className="dropdown-item" href="/login">Login</a></li>
                         <li><a className="dropdown-item" href="/signup">Sign Up</a></li>
+                        <li><a className="dropdown-item" href="/new">New Project</a></li>
+                        <li><a className="dropdown-item" onClick={this.props.handleLogOut}>Log Out</a></li>
                       </ul>
                     </li>
                 </ul>
