@@ -63,7 +63,6 @@ componentDidMount(){
  }
 
   render() {
-<<<<<<< Updated upstream
   let userData = JSON.parse(localStorage.getItem('userData'))
   console.log(userData)
   let routes;
@@ -96,9 +95,6 @@ componentDidMount(){
   }
 
 
-=======
-    
->>>>>>> Stashed changes
     return (
       <div className="app">
         <Navbar handleLogOut={this.handleLogOut}/>
