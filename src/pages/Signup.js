@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import axios from "axios"
 
 let baseURL = "";
-if (process.env.NODE_ENV === "development") {
-  baseURL = "http://localhost:3003";
+
+if (process.env.REACT_APP_ENVIRONMENT === "production") {
+  baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
 } else {
-  baseURL = "friday-project-mgmt-backend.herokuapp.com";
+  baseURL = "http://localhost:3003";
+
 }
 // let baseURL = process.env.REACT_APP_BACKEND_URL
 
