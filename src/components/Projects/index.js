@@ -8,6 +8,7 @@ if (process.env.NODE_ENV === "development") {
   baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
 }
 // let baseURL = process.env.REACT_APP_BACKEND_URL
+console.log(process.env.NODE_ENV)
 console.log("current base URL:", baseURL);
 //class member
 
