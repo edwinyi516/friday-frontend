@@ -1,11 +1,13 @@
 import React,{Component} from 'react';
 import TaskForm from '../TaskForm'
 //add base URL
+
 let baseURL = "";
 if (process.env.REACT_APP_ENVIRONMENT === "production") {
   baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
 } else {
   baseURL = "http://localhost:3003";
+
 }
 // let baseURL = process.env.REACT_APP_BACKEND_URL
 console.log('current base URL:', baseURL)

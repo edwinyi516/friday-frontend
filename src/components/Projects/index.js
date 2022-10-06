@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProjectForm from '../ProjectForm'
 //add base URL
 let baseURL = "";
+
 if (process.env.REACT_APP_ENVIRONMENT === "production") {
   baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
 } else {
@@ -9,6 +10,7 @@ if (process.env.REACT_APP_ENVIRONMENT === "production") {
 }
 // let baseURL = process.env.REACT_APP_BACKEND_URL
 console.log(process.env.NODE_ENV)
+
 console.log("current base URL:", baseURL);
 //class member
 
