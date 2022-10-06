@@ -71,7 +71,7 @@ componentDidMount(){
     routes=(
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard user={this.state.user} />} />
         <Route
           path="/projects"
           element={<ProjectsList baseURL={baseURL} />}
