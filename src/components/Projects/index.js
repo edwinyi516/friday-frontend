@@ -36,13 +36,14 @@ class Project extends Component {
         this.setState({ projects: data });
       });
   };
-  handleAddProject = (project) => {
-    const copyProjects = [...this.state.projects];
-    copyProjects.unshift(project);
-    this.setState({ projects: copyProjects });
-  };
+  // handleAddProject = (project) => {
+  //   const copyProjects = [...this.state.projects];
+  //   copyProjects.unshift(project);
+  //   this.setState({ projects: copyProjects });
+  // };
   render() {
     return (
+      <>
       <ul>
         {this.state.projects.map((project) => {
           //changed it from 'projects' to 'project'  -LEILANNI
@@ -55,6 +56,8 @@ class Project extends Component {
           );
         })}
         </ul>
+        <ProjectForm handleAddProject={this.handleAddProject}/>
+        </>
     );
   }
 }

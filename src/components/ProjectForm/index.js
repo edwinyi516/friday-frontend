@@ -21,10 +21,10 @@ class ProjectForm extends Component {
       deadline: "",
       status: "",
       members: [],
-      creatorID: this.props.user.id,
+      creatorID: this.props.user._id,
       allMembers: []
     }
-  }
+    }
   //get member data for dropdown list
   componentDidMount() {
     this.getAllMember();
@@ -66,6 +66,7 @@ class ProjectForm extends Component {
     this.setState ({
       status: event.target.value
     })
+    console.log('status change ',event.target.value)
   }
   handleMembersChange = (event) =>{
     let selectedMembers = Array.from(event.target.selectedOptions, option=>option.id)
@@ -83,6 +84,7 @@ class ProjectForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log(this.state.members);
+    console.log(this.state.creatorID)
     // console.log(this.state.description)
     // console.log(JSON.stringify({title:this.state.title,description:this.state.description}))
     fetch(baseURL + "/projects", {
@@ -109,24 +111,28 @@ class ProjectForm extends Component {
           deadline: "",
           status: "",
           members: [],
-          creatorID: "",
         });
       });
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-      <label htmlFor='projectTitle'>Project Title(required): </label>
-      <input type='text' id='projectTitle' name='projectTitle' onChange={this.handleTitleChange} value={this.state.title} /><br/>
-      <label htmlFor='projectDescription'>Project Description(required): </label>
-      <input type='text' id='projectDescription' name='projectDescription' onChange={this.handleDescriptionChange} value={this.state.description} /><br/>
-      <label htmlFor='projectDeadline'>Project Deadline(required): </label>
-      <input type='date' id='projectDeadline' name='projectDeadline' onChange={this.handleDeadlineChange} value={this.state.deadline} /><br/>
-      <label htmlFor='projectStatus'>Project Status: </label>
-      <input type='text' id='projectStatus' name='projectStatus' onChange={this.handleStatusChange} value={this.state.status} /><br/>
-      <label htmlFor='projectMembers'>Project Members (hold ctrl/cmd to select multiple): </label><br/>
-      <select name='projectMembers' id='projectMembers' onChange = {this.handleMembersChange} multiple>
-      {this.state.allMembers.map(members =>{
+      <form  id='projectForm' className='mb-3' onSubmit={this.handleSubmit}>
+      <label className='form-label' htmlFor='projectTitle'>Project Title(required): </label>
+      <input className='form-control' type='text' id='projectTitle' name='projectTitle' onChange={this.handleTitleChange} value={this.state.title} /><br/>
+      <label className='form-label' htmlFor='projectDescription'>Project Description(required): </label>
+      <input className='form-control' type='text' id='projectDescription' name='projectDescription' onChange={this.handleDescriptionChange} value={this.state.description} /><br/>
+      <label className='form-label' htmlFor='projectDeadline'>Project Deadline(required): </label>
+      <input className='form-control' type='date' id='projectDeadline' name='projectDeadline' onChange={this.handleDeadlineChange} value={this.state.deadline} /><br/>
+      <label className='form-label' htmlFor='projectStatus'>Choose Project Status: </label>
+      <select className="form-select" aria-label="Default select example" name='projectStatus' id='projectStatus' onChange={this.handleStatusChange}>
+        <option value='notStarted'>Not Started</option>
+        <option value='inProgress'>In Progress</option>
+        <option value='Completed'>Completed</option>
+      </select>
+      <br/>
+      <label className='form-label' htmlFor='projectMembers'>Project Members (hold ctrl/cmd to select multiple): </label><br/>
+      <select className="form-select" name='projectMembers' id='projectMembers' onChange = {this.handleMembersChange} multiple>
+          {this.state.allMembers.map(members =>{
         return (
           <option key ={members._id} id ={members._id}>{members.firstName+' '+members.lastName}</option>
         )
@@ -135,7 +141,7 @@ class ProjectForm extends Component {
       {/* // <label htmlFor='projectCreatorID'>Project Creator ID(required): </label> */}
       {/* // <input type='text' id='projectCreatorID' name='projectCreatorID' onChange={this.handleCreatorIDChange} value={this.state.creatorID} /><br/> */}
 
-        <input type="submit" value="Submit" />
+        <input className='form-control' type="submit" value="Submit" />
       </form>
     );
   }

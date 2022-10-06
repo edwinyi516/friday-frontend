@@ -76,6 +76,7 @@ class TaskForm extends Component {
     this.setState({
       status: event.target.value,
     });
+
   };
   handleAssigneeNameChange = (event) => {
     //find member ID based on name chosen from drop down
@@ -189,14 +190,12 @@ class TaskForm extends Component {
           value={this.state.creatorID}
         />
         <br />
-        <label htmlFor="taskStatus"> Task Status: </label>
-        <input
-          type="text"
-          id="taskStatus"
-          name="taskStatus"
-          onChange={this.handleStatusChange}
-          value={this.state.taskStatus}
-        />
+        <label htmlFor="taskStatus"> Choose Task Status: </label>
+        <select name='taskStatus' id='taskStatus' onChange={this.handleStatusChange}>
+          <option value='notStarted'>Not Started</option>
+          <option value='inProgress'>In Progress</option>
+          <option value='Completed'>Completed</option>
+        </select>
         <br />
         <label htmlFor="assigneeName"> Assignee Name(required): </label>
         <select

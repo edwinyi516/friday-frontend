@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 let baseURL = "";
 if (process.env.REACT_APP_ENVIRONMENT === "production") {
@@ -7,25 +8,39 @@ if (process.env.REACT_APP_ENVIRONMENT === "production") {
 } else {
   baseURL = "http://localhost:3003";
 }
-// let baseURL = "https://friday-project-mgmt-frontend.herokuapp.com"
 
-export default function Login() {
+export default function Login(props) {
+  const navigate = useNavigate()
   const [loginEmail, setLoginEmail] = useState("")
   const [loginPassword, setLoginPassword] = useState("")
-
   const login = (event) => {
-    event.preventDefault()
-      axios({
-      method: "POST",
-      data: {
-        email: loginEmail,
-        password: loginPassword
-      },
-      withCredentials: true,
-      url: baseURL + "/login"
-    })
-    .then((res) => console.log(res))
+  event.preventDefault()
+    axios({
+    method: "POST",
+    data: {
+      email: loginEmail,
+      password: loginPassword
+    },
+    withCredentials: true,
+    url: baseURL + "/login"
+  })
+  .then((res) => {
+    localStorage.setItem(
+      'userData',
+      JSON.stringify(
+        {
+          userData:res.data,
+        }
+      )
+
+    )
+    props.handleLogIn(res.data)
   }
+    )
+  .then(()=>{
+    navigate ('/dashboard')
+  })
+}
 
   return (
     <>
