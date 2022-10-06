@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import ProjectForm from '../ProjectForm'
 //add base URL
 let baseURL = "";
-if (process.env.NODE_ENV === "development") {
-  baseURL = "http://localhost:3003";
-} else {
+if (process.env.REACT_APP_ENVIRONMENT === "production") {
   baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
+} else {
+  baseURL = "http://localhost:3003";
 }
 // let baseURL = process.env.REACT_APP_BACKEND_URL
 console.log(process.env.NODE_ENV)
