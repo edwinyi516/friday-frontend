@@ -27,7 +27,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       user:'',
-      userdata:JSON.parse(localStorage.getItem('userData'))
+      userdata: JSON.parse(localStorage.getItem('userData'))
     };
   }
 
@@ -71,7 +71,7 @@ componentDidMount(){
     routes=(
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard user={this.state.user} />} />
+        <Route path="/dashboard" element={<Dashboard baseURL={baseURL} user={userData.userData} />} />
         <Route
           path="/projects"
           element={<ProjectsList baseURL={baseURL} />}

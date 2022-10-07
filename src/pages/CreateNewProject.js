@@ -12,7 +12,6 @@ class CreateNewProject extends React.Component{
   }
 // const [user, setUser] = useState("")
 
-
 //   useEffect(() => {
 //     axios({
 //       method: "GET",

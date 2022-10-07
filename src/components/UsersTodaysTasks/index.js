@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import TodaysTasksList from "../Dashboard/TasksList"
 
 let baseURL = "";
 if (process.env.REACT_APP_ENVIRONMENT === "production") {
@@ -14,7 +14,8 @@ export default class UsersTodaysTasks extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            todaysTasks: []
+            todaysTasks: [],
+            task: {},
         }
     }
     componentDidMount() {
@@ -36,17 +37,24 @@ export default class UsersTodaysTasks extends Component {
             })
     }
 
+    handleClick = (taskId) => {
+        const selectedTask = this.state.todaysTasks.find((task) => task._id === taskId);
+        this.setState({ task: selectedTask });
+      };
+
     render() {
         return (
             <>
                 <h3>Today's Tasks</h3>
-                <ul>
+
+
+                {/* <ul>
                     {
                         this.state.todaysTasks.map((task, i) => (
                             <li key={i}>{task.taskName}</li>
                         ))
                     }
-                </ul>
+                </ul> */}
             </>
         )
     }

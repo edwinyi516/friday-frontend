@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-
+import TasksList from '../Dashboard/TasksList';
+import TaskDetails from '../Dashboard/TaskDetails';
 
 let baseURL = "";
 if (process.env.REACT_APP_ENVIRONMENT === "production") {
   baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
 } else {
   baseURL = "http://localhost:3003";
-
 }
 // let baseURL = process.env.REACT_APP_BACKEND_URL
 
@@ -31,22 +31,32 @@ export default class UsersUpcomingTasks extends Component {
                     return []
                 }
             }).then(data => {
-                console.log("tasks data", data)
                 this.setState({ upcomingTasks: data })
             })
     }
 
+    handleClick = (taskId) => {
+        const selectedTask = this.state.upcomingTasks.find((task) => task._id === taskId);
+        this.setState({ task: selectedTask });
+        console.log(selectedTask)
+      };
+
     render() {
         return (
             <>
-                <h3>Upcoming Tasks</h3>
+                <div>
+                    <TasksList tasksArray={this.state.upcomingTasks} handleClick={this.handleClick} />
+                    <TaskDetails {...this.state.task} />
+                </div>
+
+                {/* <h3>Upcoming Tasks</h3>
                 <ul>
                     {
                         this.state.upcomingTasks.map((task, i) => (
                             <li key={i}>{task.taskName}</li>
                         ))
                     }
-                </ul>
+                </ul> */}
             </>
         )
     }

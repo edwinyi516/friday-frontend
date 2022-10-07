@@ -1,0 +1,16 @@
+.upperContent {
+  border: solid 2px black;
+  margin: 2px;
+}
+
+.upperContent_topHalf {
+  border: solid 2px red;
+  margin: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.statusAndDeadline {
+  border: solid 2px black;
+  margin: 2px;
+}
