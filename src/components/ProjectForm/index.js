@@ -141,9 +141,6 @@ class ProjectForm extends Component {
         )
       })}
       </select><br/>
-      {/* // <label htmlFor='projectCreatorID'>Project Creator ID(required): </label> */}
-      {/* // <input type='text' id='projectCreatorID' name='projectCreatorID' onChange={this.handleCreatorIDChange} value={this.state.creatorID} /><br/> */}
-
         <input className='form-control' type="submit" value="Submit" />
       </form>
     );

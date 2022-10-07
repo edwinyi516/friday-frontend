@@ -6,7 +6,8 @@
 }
 #homepageBody {
   color:white;
-  background-color: rgb(6,8,64)
+  background-color: rgb(6,8,64);
+  padding-bottom:300px;
   }
 #containers {
   display: flex;
@@ -50,7 +51,7 @@ footer {
   text-align: center;
     /* border:2px solid; */
     margin:auto;
-    padding-top:100px;
+
     color:gray;
 }
 #projectForm {
