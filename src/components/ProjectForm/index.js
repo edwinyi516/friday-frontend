@@ -107,6 +107,7 @@ class ProjectForm extends Component {
       .then((resJson) => {
         console.log("NewForm - resJson", resJson);
         this.props.handleAddProject(resJson);
+        alert('Project added successfully')
         this.setState({
           title: "",
           description: "",
