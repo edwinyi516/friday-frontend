@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import ProjectForm from "../ProjectForm";
 //add base URL
 let baseURL = "";
+let frontendURL = ""
 
 if (process.env.REACT_APP_ENVIRONMENT === "production") {
   baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
