@@ -6,7 +6,7 @@ export default class TaskDetails extends Component {
     super(props);
     this.state = {
       editMode: false,
-      currentMembers: [],
+      // currentMembers: [],
       taskName: this.props.taskName,
       taskDescrption: this.props.description,
       taskDeadline: this.props.deadline,
@@ -17,24 +17,8 @@ export default class TaskDetails extends Component {
   }
 
   activateEditMode = () => {
-    const membersIds = this.props.members;
-    const memberIdQuery = membersIds
-      .map((member) => {
-        return `member=${member}&`;
-      })
-      .join("");
-
-    console.log(memberIdQuery);
-    console.log(this.props.baseURL);
-
-    fetch(`${this.props.baseURL}/users/many/users?${memberIdQuery}`).then(
-      (res) => {
-        res.json().then((data) => {
-          this.setState({ currentMembers: data, editMode: true });
-        });
-      }
-    );
-  };
+    this.setState({ editMode: true });
+  }; //-----end of activate
 
   cancelEditMode = () => {
     this.setState({ editMode: false });
@@ -92,7 +76,6 @@ export default class TaskDetails extends Component {
   };
 
   render() {
-    console.log(this.props);
     let content = this.state.editMode ? (
       <div className="taskDetails">
         <h2>EDIT MODE</h2>
@@ -134,7 +117,7 @@ export default class TaskDetails extends Component {
             id="taskAssigneeId"
             onChange={this.handleChange}
           >
-            {this.state.currentMembers.map((member) => {
+            {this.props.currentMembers.map((member) => {
               return (
                 <option
                   selected={member._id === this.props.assigneeID ? true : false}
@@ -162,10 +145,10 @@ export default class TaskDetails extends Component {
       <div className="taskDetails">
         <h2>Task Name: {this.props.taskName}</h2>
         <ul>
-          <li>Description: {this.props.description}</li>
-          <li>Deadline: {this.props.deadline}</li>
-          <li>Assignee ID: {this.props.assigneeID} </li>
-          <li>Status: {this.props.status}</li>
+          <li key={1}>Description: {this.props.description}</li>
+          <li key={2}>Deadline: {this.props.deadline}</li>
+          <li key={3}>Assignee ID: {this.props.assigneeID} </li>
+          <li key={4}>Status: {this.props.status}</li>
         </ul>
 
         <div className="taskDetails_editAndDelete">
