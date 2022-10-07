@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 //add base URL
 let baseURL = "";
-if (process.env.NODE_ENV === "development") {
-  baseURL = "http://localhost:3003";
+
+if (process.env.REACT_APP_ENVIRONMENT === "production") {
+  baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
 } else {
-  baseURL = "friday-project-mgmt-backend.herokuapp.com";
+  baseURL = "http://localhost:3003";
 }
+// let baseURL = process.env.REACT_APP_BACKEND_URL
+
 console.log("current base URL:", baseURL);
 // let baseURL = process.env.REACT_APP_BACKEND_URL
 
@@ -75,6 +78,7 @@ class TaskForm extends Component {
     this.setState({
       status: event.target.value,
     });
+
   };
   handleAssigneeNameChange = (event) => {
     //find member ID based on name chosen from drop down
@@ -188,14 +192,12 @@ class TaskForm extends Component {
           value={this.state.creatorID}
         />
         <br />
-        <label htmlFor="taskStatus"> Task Status: </label>
-        <input
-          type="text"
-          id="taskStatus"
-          name="taskStatus"
-          onChange={this.handleStatusChange}
-          value={this.state.taskStatus}
-        />
+        <label htmlFor="taskStatus"> Choose Task Status: </label>
+        <select name='taskStatus' id='taskStatus' onChange={this.handleStatusChange}>
+          <option value='notStarted'>Not Started</option>
+          <option value='inProgress'>In Progress</option>
+          <option value='Completed'>Completed</option>
+        </select>
         <br />
         <label htmlFor="assigneeName"> Assignee Name(required): </label>
         <select

@@ -4,13 +4,9 @@
   padding: 0;
   list-style: none;
 }
-body {
-  /* background-color: rgb(6,8,64); */
-  /* TEMPORARILY SO I CAN SEE THE BACKGROUND */
-  background-color: white;
-}
 #homepageBody {
   color: white;
+  background-color: rgb(6, 8, 64);
 }
 #containers {
   display: flex;
@@ -56,4 +52,12 @@ footer {
   margin: auto;
   padding-top: 100px;
   color: gray;
+}
+#projectForm {
+  width: 50%;
+  margin: auto;
+}
+#projectFormHeader {
+  text-align: center;
+  padding: 50px;
 }
