@@ -34,13 +34,13 @@ export default function Signup() {
 
   return (
     <>
-    <h1>Register</h1>
-    <form>
-      <input placeholder="First Name" onChange={e => setRegisterFirstName(e.target.value)}></input>
-      <input placeholder="Last Name" onChange={e => setRegisterLastName(e.target.value)}></input>
-      <input placeholder="Email" onChange={e => setRegisterEmail(e.target.value)}></input>
-      <input type="password" placeholder="Password" onChange={e => setRegisterPassword(e.target.value)}></input>
-      <button onClick={register}>Submit</button>
+    <h3 id='signUpHeader'>Sign up </h3>
+    <form id='signUpForm' className='mb-3'>
+      <input className='form-control' placeholder="First Name" onChange={e => setRegisterFirstName(e.target.value)}></input>
+      <input className='form-control' placeholder="Last Name" onChange={e => setRegisterLastName(e.target.value)}></input>
+      <input className='form-control' placeholder="Email" onChange={e => setRegisterEmail(e.target.value)}></input>
+      <input className='form-control' type="password" placeholder="Password" onChange={e => setRegisterPassword(e.target.value)}></input>
+      <button className='form-control' onClick={register}>Submit</button>
     </form>
     </>
   )

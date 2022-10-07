@@ -46,11 +46,11 @@ export default function Login(props) {
 
   return (
     <>
-    <h1>Login page</h1>
-    <form>
-      <input placeholder="Email" onChange={e => setLoginEmail(e.target.value)}></input>
-      <input type="password" placeholder="Password" onChange={e => setLoginPassword(e.target.value)}></input>
-      <button onClick={login}>Submit</button>
+    <h3 id='logInHeader'>Log into your account</h3>
+    <form id='logInForm' className='mb-3'>
+      <input className='form-control' placeholder="Email" onChange={e => setLoginEmail(e.target.value)}></input>
+      <input className='form-control' type="password" placeholder="Password" onChange={e => setLoginPassword(e.target.value)}></input>
+      <button className='form-control' onClick={login}>Submit</button>
     </form>
     </>
   )

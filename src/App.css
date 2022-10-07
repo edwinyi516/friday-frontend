@@ -4,18 +4,18 @@
   padding: 0;
   list-style: none;
 }
-#homepageBody{
+#homepageBody {
   color:white;
   background-color: rgb(6,8,64)
   }
-#containers{
+#containers {
   display: flex;
   /* border: solid 2px white; */
   text-align: center;
   width:70%;
   margin:auto;
 }
-.container{
+.container {
   display: flex;
   flex-direction: column;
   border:groove 1px lightgray;
@@ -23,12 +23,12 @@
   padding-top: 40px;
   border-radius:20px;
   }
-.containerImg{
+.containerImg {
   width:40%;
   height:auto;
   margin:auto;
 }
-#intro{
+#intro {
   text-align: center;
   font-size: 70px;
   /* border:solid 1px white; */
@@ -53,11 +53,15 @@ footer {
     padding-top:100px;
     color:gray;
 }
-#projectForm{
+#projectForm {
   width:50%;
   margin:auto;
 }
-#projectFormHeader{
+#projectFormHeader, #logInHeader, #signUpHeader {
   text-align: center;
   padding: 50px;
+}
+#logInForm, #signUpForm {
+  width:30%;
+  margin:auto;
 }
