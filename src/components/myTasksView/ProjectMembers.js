@@ -27,7 +27,7 @@ export default class ProjectMembers extends Component {
   render() {
     console.log(this.props);
     return (
-      <div className="projectMembersList">
+      <div className="myProjectMembersList">
         <h2> Members List</h2>
         <button
           onClick={() => {

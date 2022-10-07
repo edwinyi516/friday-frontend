@@ -1,4 +1,4 @@
-.allMembersList {
+.myAllMembersList {
   border: 2px solid black;
   background-color: white;
   border-radius: 13px;
@@ -10,7 +10,7 @@
   padding-top: 20px;
 }
 
-.allMembersList > ul {
+.myAllMembersList > ul {
   /* height: calc(100% - 55px); */
   /* overflow-x: hidden; */
   height: 57vh;
@@ -20,7 +20,7 @@
   padding: 10px;
 }
 
-.allMembersList > h2 {
+.myAllMembersList > h2 {
   box-shadow: 0 4px 2px -2px grey;
   margin-bottom: 5px;
 }

@@ -6,7 +6,7 @@ export default class MyTasksTaskItem extends Component {
     console.log(this.props);
 
     return (
-      <div className="taskItem">
+      <div className="myTaskItem">
         <h4>Name: {this.props.taskName}</h4>
         <ul>
           {/* <li>Subject</li>  <----- DO WE WANT A SUBJECT? */}

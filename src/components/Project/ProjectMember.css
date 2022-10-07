@@ -1,5 +1,5 @@
 .projectMember {
-  border: 2px solid greenyellow;
+  border: 2px solid black;
   /* width: 80px; */
   position: relative;
   height: 100px;
@@ -15,7 +15,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  border: 4px solid red;
+  border: 4px solid black;
   height: 100vh;
   width: 100%;
   padding: 20px;
@@ -30,7 +30,7 @@
   left: calc(50% - 200px);
   width: 400px;
   height: 250px;
-  border: red solid 4px;
+  border: black solid 4px;
   padding: 20px;
   text-align: center;
   border-radius: 6px;

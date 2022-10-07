@@ -82,7 +82,7 @@ export default class App extends React.Component {
           />
           <Route
             path="/projects/:id"
-            element={<Project baseURL={baseURL} />} //passing baseURL as prop to use it on Project.js
+            element={<Project baseURL={baseURL} userData={userData.userData} />} //passing baseURL as prop to use it on Project.js
           />
           <Route
             path="/new"

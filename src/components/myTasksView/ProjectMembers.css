@@ -1,8 +1,8 @@
-.projectMembersList {
+.myProjectMembersList {
   border: 2px solid orange;
   width: 56%;
 }
 
-.projectMembersList > ul {
+.myProjectMembersList > ul {
   list-style: none;
 }

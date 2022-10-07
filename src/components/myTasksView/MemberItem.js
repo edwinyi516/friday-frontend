@@ -4,7 +4,7 @@ import "./MemberItem.css";
 export default class MemberItem extends Component {
   render() {
     return (
-      <div className="memberItem">
+      <div className="myMemberItem">
         <h4>{`${this.props.firstName} ${this.props.lastName}`}</h4>
         <button
           onClick={() => {

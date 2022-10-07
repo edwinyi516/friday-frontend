@@ -1,11 +1,12 @@
 .taskDetails {
-  border: solid 2px pink;
+  /* border: solid 2px black; */
   position: relative;
   /* overflow: hidden; */
+  padding: 3% 10%;
 }
 
 .taskDetails_editAndDelete {
-  border: dotted peru 2px;
+  border: dotted black 2px;
   display: flex;
   position: absolute;
   top: 254px;
