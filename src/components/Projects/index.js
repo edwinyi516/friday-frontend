@@ -51,7 +51,7 @@ class Project extends Component {
             //changed it from 'projects' to 'project'  -LEILANNI
             return (
               <li key={project._id}>
-                <a href={`http://localhost:3000/projects/${project._id}`}>
+                <a href={`${this.props.baseURL}/${project._id}`}>
                   {project.title}
                 </a>
               </li>
