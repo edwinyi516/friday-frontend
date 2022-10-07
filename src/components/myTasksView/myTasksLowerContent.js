@@ -32,8 +32,8 @@ class MyTasksLowerContent extends Component {
 
   render() {
     return (
-      <div className="lowerContent">
-        <div className="lowerContent_lowerHalf">
+      <div className="myLowerContent">
+        <div className="myLowerContent_myLowerHalf">
           {/* {this.state.tasks} <-- is passing down an array of tasks */}
           {this.state.tasks && (
             <>

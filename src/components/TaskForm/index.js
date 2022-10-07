@@ -22,17 +22,20 @@ class TaskForm extends Component {
       taskName: "",
       description: "",
       deadline: "",
-      creatorID: "",
+      creatorID: this.props.userData._id,
       status: "",
       assigneeID: "",
       assigneeName: "",
-      allMembers: [],
+      allMembers: this.props.currentMembers ? this.props.currentMembers : [],
     };
   }
   //get member data for dropdown list
   componentDidMount() {
-    this.getAllMembers();
+    this.props.currentMembers
+      ? console.log("no need to fetch all users")
+      : this.getAllMembers();
   }
+
   getAllMembers = () => {
     fetch(baseURL + "/users")
       .then((res) => {
@@ -47,6 +50,7 @@ class TaskForm extends Component {
         this.setState({ allMembers: data });
       });
   };
+
   //set up onchange function for each input
   handleProjectIDChange = (event) => {
     this.setState({
@@ -78,7 +82,6 @@ class TaskForm extends Component {
     this.setState({
       status: event.target.value,
     });
-
   };
   handleAssigneeNameChange = (event) => {
     //find member ID based on name chosen from drop down
@@ -120,7 +123,7 @@ class TaskForm extends Component {
         description: this.state.description,
         deadline: this.state.deadline,
         creatorID: this.state.creatorID,
-        status: this.state.status,
+        status: this.state.status || "Not Started",
         assigneeID: this.state.assigneeID,
       }),
       headers: {
@@ -132,21 +135,22 @@ class TaskForm extends Component {
         console.log("NewForm - resJson", resJson);
         this.props.handleAddTask(resJson);
         this.setState({
-          projectID: "",
+          projectID: this.props.projectId ? this.props.projectId : "",
           taskName: "",
           description: "",
           deadline: "",
-          creatorID: "",
+          // creatorID: "",
           status: "",
           assigneeID: "",
         });
+        window.location.reload();
       });
   };
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="projectID"> Project ID(required): </label>
+        <label htmlFor="projectID"> </label>
         <input
           type="text"
           id="projectID"
@@ -156,7 +160,7 @@ class TaskForm extends Component {
           hidden
         />
         <br />
-        <label htmlFor="taskName"> taskName(required): </label>
+        <label htmlFor="taskName"> Task Name (required): </label>
         <input
           type="text"
           id="taskName"
@@ -165,8 +169,9 @@ class TaskForm extends Component {
           value={this.state.taskName}
         />
         <br />
-        <label htmlFor="taskDescription"> Description(required): </label>
-        <input
+        <label htmlFor="taskDescription"> Description (required): </label>
+        <textarea
+          rows={5}
           type="text"
           id="taskDescription"
           name="taskDescription"
@@ -174,7 +179,7 @@ class TaskForm extends Component {
           value={this.state.description}
         />
         <br />
-        <label htmlFor="taskDeadline"> Task Deadline(required): </label>
+        <label htmlFor="taskDeadline"> Task Deadline (required): </label>
         <input
           type="date"
           id="taskDeadline"
@@ -183,23 +188,28 @@ class TaskForm extends Component {
           value={this.state.deadline}
         />
         <br />
-        <label htmlFor="creatorID"> CreatorID(required): </label>
+        <label htmlFor="creatorID"></label>
         <input
           type="text"
           id="creatorID"
           name="creatorID"
           onChange={this.handleCreatorIDChange}
           value={this.state.creatorID}
+          hidden
         />
-        <br />
         <label htmlFor="taskStatus"> Choose Task Status: </label>
-        <select name='taskStatus' id='taskStatus' onChange={this.handleStatusChange}>
-          <option value='notStarted'>Not Started</option>
-          <option value='inProgress'>In Progress</option>
-          <option value='Completed'>Completed</option>
+        <select
+          defaultValue={"Not Started"}
+          name="taskStatus"
+          id="taskStatus"
+          onChange={this.handleStatusChange}
+        >
+          <option value="notStarted">Not Started</option>
+          <option value="inProgress">In Progress</option>
+          <option value="Completed">Completed</option>
         </select>
         <br />
-        <label htmlFor="assigneeName"> Assignee Name(required): </label>
+        <label htmlFor="assigneeName"> Assignee Name (required): </label>
         <select
           name="assigneeName"
           id="assigneeName"

@@ -37,7 +37,11 @@ function Project(props) {
       {/* below we're passing down the state as props */}
       <UpperContent {...projectState} />
       {projectState !== null ? (
-        <LowerContent {...projectState} baseURL={props.baseURL} />
+        <LowerContent
+          {...projectState}
+          baseURL={props.baseURL}
+          userData={props.userData}
+        />
       ) : null}
     </div>
   );

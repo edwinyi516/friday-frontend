@@ -1,6 +1,6 @@
 .taskItem {
   position: relative;
-  border: solid 2px blue;
+  /* border: solid 2px black; */
   /* max-height: 138px; */
   padding: 20px;
 }
@@ -13,7 +13,7 @@
 }
 
 .avatar > div {
-  border: solid orange 2px;
+  border: solid black 2px;
   border-radius: 35px;
 }
 
@@ -22,4 +22,9 @@
   background-size: contain;
   height: 60px;
   width: 60px;
+}
+
+.taskDetailsSubmit,
+.taskDetailsCancel {
+  width: auto;
 }
