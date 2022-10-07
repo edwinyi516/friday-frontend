@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./TaskItem.css";
+import "./myTasksTaskItem.css";
 
-export default class TaskItem extends Component {
+export default class MyTasksTaskItem extends Component {
   render() {
     console.log(this.props);
 
@@ -12,10 +12,9 @@ export default class TaskItem extends Component {
           {/* <li>Subject</li>  <----- DO WE WANT A SUBJECT? */}
           <li>Deadline: {this.props.deadline}</li>
         </ul>
-        <div className="avatar">
-          <p>Assignee</p>
+        {/* <div className="avatar">
           <div className="picture"></div>
-        </div>
+        </div> */}
       </div>
     );
   }

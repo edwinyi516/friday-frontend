@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./TaskDetails.css";
+import "./myTasksTaskDetails.css";
 
-export default class TaskDetails extends Component {
+export default class MyTasksTaskDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -108,24 +108,6 @@ export default class TaskDetails extends Component {
             value={this.state.taskDeadline}
             type="date"
           />
-
-          <br></br>
-
-          <label htmlFor="taskAsignee">Assignee: </label>
-          <select
-            name="taskAssigneeId"
-            id="taskAssigneeId"
-            onChange={this.handleChange}
-          >
-            {this.props.currentMembers.map((member) => {
-              return (
-                <option
-                  selected={member._id === this.props.assigneeID ? true : false}
-                  value={member._id}
-                >{`${member.firstName} ${member.lastName}`}</option>
-              );
-            })}
-          </select>
 
           <br></br>
 

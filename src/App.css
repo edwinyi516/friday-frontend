@@ -13,30 +13,30 @@
   display: flex;
   /* border: solid 2px white; */
   text-align: center;
-  width:70%;
-  margin:auto;
+  width: 70%;
+  margin: auto;
 }
 .container {
   display: flex;
   flex-direction: column;
-  border:groove 1px lightgray;
-  margin:20px;
+  border: groove 1px lightgray;
+  margin: 20px;
   padding-top: 40px;
-  border-radius:20px;
-  }
+  border-radius: 20px;
+}
 .containerImg {
-  width:40%;
-  height:auto;
-  margin:auto;
+  width: 40%;
+  height: auto;
+  margin: auto;
 }
 #intro {
   text-align: center;
   font-size: 70px;
   /* border:solid 1px white; */
-  overflow-wrap:break-word;
-  margin:auto;
-  width:60%;
-  padding:60px;
+  overflow-wrap: break-word;
+  margin: auto;
+  width: 60%;
+  padding: 60px;
 }
 .fa {
   /* border:2px solid; */
@@ -49,16 +49,16 @@
 }
 footer {
   text-align: center;
-    /* border:2px solid; */
-    margin:auto;
-
-    color:gray;
+  /* border:2px solid; */
+  margin: auto;
+  padding-top: 100px;
+  color: gray;
 }
 #projectForm {
-  width:50%;
-  margin:auto;
+  width: 50%;
+  margin: auto;
 }
-#projectFormHeader, #logInHeader, #signUpHeader {
+#projectFormHeader {
   text-align: center;
   padding: 50px;
 }

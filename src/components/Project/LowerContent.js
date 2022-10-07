@@ -17,6 +17,7 @@ class LowerContent extends Component {
       activateAddMemberMode: false,
       notProjectMembersYet: null,
       members: [],
+      currentMembers: [],
       editTaskMode: false,
     };
   }
@@ -24,23 +25,40 @@ class LowerContent extends Component {
   componentDidMount() {
     console.log(this.props);
 
-    fetch(`${this.props.baseURL}/tasks/project/${this.props._id}`).then(
-      (res) => {
-        res.json().then((data) => {
-          console.log(data);
-          this.setState({
-            tasks: data,
-            task: data[0],
-            members: this.props.members,
-          });
+    const membersIds = this.props.members;
+    const memberIdQuery = membersIds
+      .map((member) => {
+        return `member=${member}&`;
+      })
+      .join("");
+
+    const fetchTasksUrl = `${this.props.baseURL}/tasks/project/${this.props._id}`;
+    const fetchMembersUrl = `${this.props.baseURL}/users/many/users?${memberIdQuery}`;
+
+    Promise.all([fetch(fetchTasksUrl), fetch(fetchMembersUrl)])
+      .then(([res1, res2]) => {
+        return Promise.all([res1.json(), res2.json()]);
+      })
+      .then(([res1, res2]) => {
+        const taskAssignee = res2.find(
+          (user) => user._id === res1[0].assigneeID
+        );
+        this.setState({
+          tasks: res1,
+          task: res1[0],
+          taskAssignee,
+          members: this.props.members,
+          currentMembers: res2,
         });
-      }
-    );
+      });
   }
 
   handleClick = (taskId) => {
     const selectedTask = this.state.tasks.find((task) => task._id === taskId);
-    this.setState({ task: selectedTask });
+    const taskAssignee = this.state.currentMembers.find(
+      (user) => user._id === selectedTask.assigneeID
+    );
+    this.setState({ task: selectedTask, taskAssignee });
   };
 
   handleTab = (clickedTab) => {
@@ -211,6 +229,8 @@ class LowerContent extends Component {
                 <TaskDetails
                   {...this.state.task}
                   members={this.state.members}
+                  currentMembers={this.state.currentMembers}
+                  baseURL={this.props.baseURL}
                 />
               )}
             </>
