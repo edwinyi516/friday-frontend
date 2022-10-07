@@ -14,7 +14,7 @@ export default class Home extends Component {
     return (
       <>
       <div id="homepageBody">
-        <div id='intro'>A platform built for an innovative way of collabration</div>
+        <div id='intro'>A platform built for an innovative way of collaboration</div>
         <div id='containers'>
           <div className="container" >
           <img className="containerImg" id="creative" src={creative} alt="img" />

@@ -110,7 +110,7 @@ export default class App extends React.Component {
 
     return (
       <div className="app">
-        <Navbar handleLogOut={this.handleLogOut} />
+        <Navbar handleLogOut={this.handleLogOut} user={this.state.user} />
         <main>{routes}</main>
       </div>
     );
