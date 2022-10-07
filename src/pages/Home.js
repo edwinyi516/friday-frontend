@@ -50,8 +50,6 @@ export default class Home extends Component {
       <div>All Rights Reserved © friday.com</div>
       </footer>
       </>
-
-
     )
   }
 }

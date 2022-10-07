@@ -107,6 +107,7 @@ class ProjectForm extends Component {
       .then((resJson) => {
         console.log("NewForm - resJson", resJson);
         this.props.handleAddProject(resJson);
+        alert('Project added successfully')
         this.setState({
           title: "",
           description: "",
@@ -140,9 +141,6 @@ class ProjectForm extends Component {
         )
       })}
       </select><br/>
-      {/* // <label htmlFor='projectCreatorID'>Project Creator ID(required): </label> */}
-      {/* // <input type='text' id='projectCreatorID' name='projectCreatorID' onChange={this.handleCreatorIDChange} value={this.state.creatorID} /><br/> */}
-
         <input className='form-control' type="submit" value="Submit" />
       </form>
     );

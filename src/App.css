@@ -5,9 +5,10 @@
   list-style: none;
 }
 #homepageBody {
-  color: white;
-  background-color: rgb(6, 8, 64);
-}
+  color:white;
+  background-color: rgb(6,8,64);
+  padding-bottom:300px;
+  }
 #containers {
   display: flex;
   /* border: solid 2px white; */
@@ -60,4 +61,8 @@ footer {
 #projectFormHeader {
   text-align: center;
   padding: 50px;
+}
+#logInForm, #signUpForm {
+  width:20%;
+  margin:auto;
 }
