@@ -1,0 +1,17 @@
+.taskDetails {
+  border: solid 2px pink;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.taskDetails_editAndDelete {
+  border: dotted peru 2px;
+  display: flex;
+  position: absolute;
+  top: 254px;
+  right: 41px;
+}
+
+.taskDetails_editAndDelete p {
+  margin: 2px;
+}

@@ -1,0 +1,25 @@
+.taskItem {
+  position: relative;
+  border: solid 2px blue;
+  /* max-height: 138px; */
+  padding: 20px;
+}
+
+.avatar {
+  display: flex;
+  position: absolute;
+  bottom: 8px;
+  right: 17px;
+}
+
+.avatar > div {
+  border: solid orange 2px;
+  border-radius: 35px;
+}
+
+.picture {
+  background-image: url("https://i.ibb.co/fpdGtCw/blank-avatar.webp");
+  background-size: contain;
+  height: 60px;
+  width: 60px;
+}
