@@ -10,6 +10,9 @@ import Navbar from "./components/Navbar";
 import React from "react";
 import ProjectsList from "./components/Projects";
 import axios from "axios";
+import MyTasksProject from "./components/myTasksView/myTasksProject";
+
+//--------------------------
 
 let baseURL = "";
 
@@ -84,6 +87,10 @@ export default class App extends React.Component {
           <Route
             path="/new"
             element={<CreateNewProject user={this.state.user} />}
+          />
+          <Route
+            path="/mytasks"
+            element={<MyTasksProject userData={userData} baseURL={baseURL} />}
           />
         </Routes>
       );

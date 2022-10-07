@@ -36,7 +36,7 @@ export default function Login(props) {
         props.handleLogIn(res.data);
       })
       .then(() => {
-        navigate("/dashboard");
+        navigate("/mytasks");
       });
   };
 
