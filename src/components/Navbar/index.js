@@ -27,7 +27,7 @@ export default class Navbar extends Component {
                       </a>
                       <ul className="dropdown-menu">
                         <li><a className="dropdown-item" href="/">Home</a></li>
-                        <li><a className="dropdown-item" href="/dashboard">Dashboard</a></li>
+                        <li><a className="dropdown-item" href="/mytasks">Dashboard</a></li>
                         <li><a className="dropdown-item" href="/login">Login</a></li>
                         <li><a className="dropdown-item" href="/signup">Sign Up</a></li>
                         <li><a className="dropdown-item" href="/new">New Project</a></li>

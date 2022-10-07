@@ -58,10 +58,11 @@ footer {
   width: 50%;
   margin: auto;
 }
-#projectFormHeader {
+#projectFormHeader, #logInHeader, #signUpHeader {
   text-align: center;
   padding: 50px;
 }
+
 #logInForm, #signUpForm {
   width:20%;
   margin:auto;
