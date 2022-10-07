@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import "./index.css"
 import icon from "../../assets/images/friday-icon.png"
 
+
 export default class Navbar extends Component {
   constructor(props) {
     super(props);

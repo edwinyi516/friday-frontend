@@ -14,31 +14,31 @@ export default class Home extends Component {
     return (
       <>
       <div id="homepageBody">
-        <div id='intro'>A platform built for an innovative way of collaboration</div>
+        <div id='intro'>A platform built for an<br></br>innovative way of collaboration</div>
         <div id='containers'>
           <div className="container" >
           <img className="containerImg" id="creative" src={creative} alt="img" />
-          <div>Software development</div>
+          <div className="containerText">Software development</div>
           </div>
           <div className="container">
           <img className="containerImg" id="marketing" src={marketing} alt="img"/>
-          <div>Marketing</div>
+          <div className="containerText">Marketing</div>
           </div>
           <div className="container">
           <img className="containerImg" id="projectManagement" src={projectManagement} alt="img"/>
-          <div>Project management</div>
+          <div className="containerText">Project management</div>
           </div>
           <div className="container">
           <img className="containerImg" id="sales" src={sales} alt="img"/>
-          <div>Sales and CRM</div>
+          <div className="containerText">Sales and CRM</div>
           </div>
           <div className="container">
           <img className="containerImg" id="taskManagement" src={taskManagement} alt="img"/>
-          <div>Task Managment</div>
+          <div className="containerText">Task Managment</div>
           </div>
           <div className="container">
           <img className="containerImg" id="operation" src={operation} alt="img"/>
-          <div>Operation</div>
+          <div className="containerText">Operation</div>
           </div>
         </div>
       </div>
