@@ -5,8 +5,10 @@ let baseURL = "";
 
 if (process.env.REACT_APP_ENVIRONMENT === "production") {
   baseURL = "https://friday-project-mgmt-backend.herokuapp.com";
+  frontendURL = "https://friday-project-mgmt-frontend.herokuapp.com"
 } else {
   baseURL = "http://localhost:3003";
+  frontendURL = "http://localhost:3000"
 }
 // let baseURL = process.env.REACT_APP_BACKEND_URL
 console.log(process.env.NODE_ENV);
@@ -51,7 +53,7 @@ class Project extends Component {
             //changed it from 'projects' to 'project'  -LEILANNI
             return (
               <li key={project._id}>
-                <a href={`${this.props.baseURL}/projects/${project._id}`}>
+                <a href={`${frontendURL}/projects/${project._id}`}>
                   {project.title}
                 </a>
               </li>
