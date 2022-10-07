@@ -12,7 +12,6 @@ export default class TaskItem extends Component {
           {/* <li>Subject</li>  <----- DO WE WANT A SUBJECT? */}
           <li>Deadline: {this.props.deadline}</li>
         </ul>
-        <p>Delete</p>
         <div className="avatar">
           <p>Assignee</p>
           <div className="picture"></div>
