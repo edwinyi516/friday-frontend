@@ -21,7 +21,7 @@ if (process.env.REACT_APP_ENVIRONMENT === "production") {
 } else {
   baseURL = "http://localhost:3003";
 }
-console.log(process.env);
+// console.log(process.env);
 
 // let baseURL = process.env.REACT_APP_BACKEND_URL
 
@@ -68,7 +68,7 @@ export default class App extends React.Component {
     console.log(userData);
     let routes;
     if (userData) {
-      console.log(this.state.user);
+      // console.log(this.state.user);
       routes = (
         <Routes>
           <Route exact path="/" element={<Home />} />

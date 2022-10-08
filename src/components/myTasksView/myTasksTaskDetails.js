@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./myTasksTaskDetails.css";
 
 export default class MyTasksTaskDetails extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -75,7 +76,10 @@ export default class MyTasksTaskDetails extends Component {
       });
   };
 
+
   render() {
+    let deadline = this.props.deadline
+    let deadlineString = new Date(deadline).toLocaleDateString("en-us")
     let content = this.state.editMode ? (
       <div className="taskDetails container" id="projectContainer">
         <h2>EDIT MODE</h2>
@@ -125,12 +129,11 @@ export default class MyTasksTaskDetails extends Component {
       </div>
     ) : (
       <div className="taskDetails container"  id="projectContainer">
-        <h2>Task Name: {this.props.taskName}</h2>
+        <h2 id="dashboard-task-details-name">{this.props.taskName}</h2>
         <ul>
           <li key={1}>Description: {this.props.description}</li>
-          <li key={2}>Deadline: {this.props.deadline}</li>
-          <li key={3}>Assignee ID: {this.props.assigneeID} </li>
-          <li key={4}>Status: {this.props.status}</li>
+          <li key={2}>Deadline: {deadlineString}</li>
+          <li key={3}>Status: {this.props.status}</li>
         </ul>
 
         <div className="taskDetails_editAndDelete">

@@ -6,7 +6,7 @@
 }
 
 .taskDetails_editAndDelete {
-  border: dotted black 2px;
+  /* border: dotted black 2px; */
   display: flex;
   position: absolute;
   top: 254px;

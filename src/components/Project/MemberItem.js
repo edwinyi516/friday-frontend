@@ -7,6 +7,7 @@ export default class MemberItem extends Component {
       <div className="memberItem">
         <h4>{`${this.props.firstName} ${this.props.lastName}`}</h4>
         <button
+          className="form-control"
           onClick={() => {
             this.props.handleSubmitNewMemberToProject(this.props._id);
           }}
