@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700;800;900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -11,10 +11,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color:white;
-  background-color: rgb(6,8,64);
-  padding: 180px 0px 180px 0px
-  }
+  color: white;
+  background-color: rgb(6, 8, 64);
+  padding: 180px 0px 180px 0px;
+}
 #containers {
   display: flex;
   /* border: solid 2px white; */
@@ -60,7 +60,7 @@
   width: 1000px;
   text-align: center;
   font-size: 60px;
-  font-family: 'Raleway';
+  font-family: "Raleway";
   font-weight: 700;
   /* border:solid 1px white; */
   margin: auto;
@@ -86,12 +86,29 @@ footer {
   width: 50%;
   margin: auto;
 }
-#projectFormHeader, #logInHeader, #signUpHeader {
+#projectFormHeader,
+#logInHeader,
+#signUpHeader {
   text-align: center;
   padding: 50px;
 }
 
-#logInForm, #signUpForm {
-  width:20%;
-  margin:auto;
+#logInForm,
+#signUpForm {
+  width: 20%;
+  margin: auto;
+}
+
+.taskFormContainer {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* 
+.taskDescriptiononTaskForm {
+  display: block;
+} */
+
+.taskFormForm {
+  display: flex;
+  flex-direction: column;
 }

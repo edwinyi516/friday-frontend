@@ -30,6 +30,7 @@ export default class ProjectMembers extends Component {
       <div className="projectMembersList">
         <h2> Members List</h2>
         <button
+          className="form-control"
           onClick={() => {
             this.props.handleAddMember();
           }}

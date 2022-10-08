@@ -72,6 +72,7 @@ export default class TaskDetails extends Component {
     let deadline = this.props.deadline;
     let deadlineString = new Date(deadline).toLocaleDateString();
     let deadlineIso = new Date(deadline).toISOString().split("T")[0];
+
     let content = this.state.editMode ? (
       <div className="taskDetails container" id="projectContainer">
         <h2>EDIT MODE</h2>
@@ -153,7 +154,7 @@ export default class TaskDetails extends Component {
             defaultValue={this.props.status}
           />
 
-          <button type="submit" className="form-control taskDetailsSubmit">
+          <button type="submit" className="form-control taskDetailsSubmit btn">
             SUBMIT
           </button>
         </form>
@@ -166,21 +167,31 @@ export default class TaskDetails extends Component {
       </div>
     ) : (
       <div className="taskDetails container" id="projectContainer">
-        <h2>Task Name: {this.props.taskName}</h2>
+        <h2>Task: {this.props.taskName}</h2>
         <ul>
-          <li key={1}>Description: {this.props.description}</li>
-          <li key={2}>Deadline: {deadlineString}</li>
-          <li key={3}>
+          <li className="form-label" key={1}>
+            Description: {this.props.description}
+          </li>
+          <li className="form-label" key={2}>
+            Deadline: {deadlineString}
+          </li>
+          <li className="form-label" key={3}>
             Assignee:{" "}
             {`${this.props.userObj.firstName} ${this.props.userObj.lastName}`}
           </li>
-          <li key={4}>Status: {this.props.status}</li>
+          <li className="form-label" key={4}>
+            Status: {this.props.status}
+          </li>
         </ul>
 
         <div className="taskDetails_editAndDelete">
-          <p onClick={this.activateEditMode}>Edit</p>
+          <p className="card" onClick={this.activateEditMode}>
+            Edit
+          </p>
           <p>|</p>
-          <p onClick={this.handleDelete}>Delete</p>
+          <p className="card" onClick={this.handleDelete}>
+            Delete
+          </p>
         </div>
       </div>
     );

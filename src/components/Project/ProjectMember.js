@@ -19,7 +19,7 @@ export default class ProjectMember extends Component {
   render() {
     return (
       <>
-        <div className="projectMember">
+        <div className="projectMember card">
           {this.state.deleteMode && (
             <div
               className="projectMemberBackdrop"
@@ -53,7 +53,7 @@ export default class ProjectMember extends Component {
             <li>E-mail: {this.props.email}</li>
           </ul>
           <p
-            className="removeProjectMemberButton"
+            className="removeProjectMemberButton form-control"
             onClick={() => {
               this.activateDeleteModal();
             }}
