@@ -12,10 +12,10 @@ export default class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm bg-light">
         <div className="container-fluid">
-          <a className="container1" href="/">
+          <div className="container1" href="/">
             <img id="icon" src={icon} alt='icon'/>
             <a className="navbar-brand" id="friday">Friday.com</a>
-          </a>
+          </div>
           <div className="container2">
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -23,9 +23,9 @@ export default class Navbar extends Component {
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item dropdown">
-                      <a className="nav-link dropdown-toggle" id="menu-text" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <div className="nav-link dropdown-toggle" id="menu-text" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Menu
-                      </a>
+                      </div>
                       <ul className="dropdown-menu dropdown-menu-end">
                         <li><a className="dropdown-item" href="/">Home</a></li>
                         {

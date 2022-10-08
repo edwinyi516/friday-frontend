@@ -1,5 +1,6 @@
-import React, { useState, useNavigate } from 'react'
+import React, { useState } from 'react'
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 let baseURL = "";
 
@@ -18,7 +19,8 @@ export default function Signup() {
   const [registerEmail, setRegisterEmail] = useState("")
   const [registerPassword, setRegisterPassword] = useState("")
 
-  const register = () => {
+  const register = (event) => {
+    event.preventDefault()
     axios({
       method: "POST",
       data: {
@@ -30,7 +32,6 @@ export default function Signup() {
       withCredentials: true,
       url: baseURL + "/register"
     })
-    .then((res) => console.log(res))
     .then(() => {
       navigate("/login");
     });

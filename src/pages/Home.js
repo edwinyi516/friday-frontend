@@ -16,27 +16,27 @@ export default class Home extends Component {
       <div id="homepageBody">
         <div id='intro'>A platform built for an<br></br>innovative way of collaboration</div>
         <div id='containers'>
-          <div className="container" >
+          <div className="container" id="homeContainer">
           <img className="containerImg" id="creative" src={creative} alt="img" />
           <div className="containerText">Software development</div>
           </div>
-          <div className="container">
+          <div className="container" id="homeContainer">
           <img className="containerImg" id="marketing" src={marketing} alt="img"/>
           <div className="containerText">Marketing</div>
           </div>
-          <div className="container">
+          <div className="container" id="homeContainer">
           <img className="containerImg" id="projectManagement" src={projectManagement} alt="img"/>
           <div className="containerText">Project management</div>
           </div>
-          <div className="container">
+          <div className="container" id="homeContainer">
           <img className="containerImg" id="sales" src={sales} alt="img"/>
           <div className="containerText">Sales and CRM</div>
           </div>
-          <div className="container">
+          <div className="container" id="homeContainer">
           <img className="containerImg" id="taskManagement" src={taskManagement} alt="img"/>
           <div className="containerText">Task Managment</div>
           </div>
-          <div className="container">
+          <div className="container" id="homeContainer">
           <img className="containerImg" id="operation" src={operation} alt="img"/>
           <div className="containerText">Operation</div>
           </div>
