@@ -1,10 +1,10 @@
-.taskDetails {
+.myTaskDetails {
   border: solid 2px pink;
   position: relative;
   /* overflow: hidden; */
 }
 
-.taskDetails_editAndDelete {
+.myTaskDetails_editAndDelete {
   border: dotted peru 2px;
   display: flex;
   position: absolute;
@@ -12,6 +12,6 @@
   right: 41px;
 }
 
-.taskDetails_editAndDelete p {
+.myTaskDetails_editAndDelete p {
   margin: 2px;
 }

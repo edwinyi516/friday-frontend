@@ -17,7 +17,7 @@ function MyTasksProject(props) {
   //   }, [routeParams.id]);
 
   return (
-    <div className="projectDetailsContainer">
+    <div className="myProjectDetailsContainer">
       {props.userData !== null ? (
         <MyTasksLowerContent
           userData={props.userData}

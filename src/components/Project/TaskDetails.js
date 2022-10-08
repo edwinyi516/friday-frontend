@@ -6,13 +6,6 @@ export default class TaskDetails extends Component {
     super(props);
     this.state = {
       editMode: false,
-      // currentMembers: [],
-      taskName: this.props.taskName,
-      taskDescrption: this.props.description,
-      taskDeadline: this.props.deadline,
-      taskAssigneeId: this.props.assigneeID,
-      taskStatus: this.props.status,
-      projectID: this.props.projectID,
     };
   }
 
@@ -76,51 +69,70 @@ export default class TaskDetails extends Component {
   };
 
   render() {
+    let deadline = this.props.deadline;
+    let deadlineString = new Date(deadline).toLocaleDateString();
+    let deadlineIso = new Date(deadline).toISOString().split("T")[0];
     let content = this.state.editMode ? (
-      <div className="taskDetails">
+      <div className="taskDetails container">
         <h2>EDIT MODE</h2>
 
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="taskName">Task Name: </label>
+        <form onSubmit={this.handleSubmit} className="mb-3">
+          <label htmlFor="taskName" className="form-label">
+            Task Name:{" "}
+          </label>
           <input
+            className="form-control"
             onChange={this.handleChange}
             id="taskName"
             name="taskName"
             value={this.state.taskName}
+            defaultValue={this.props.taskName}
           />
           <br></br>
 
-          <label htmlFor="taskDescrption">Description: </label>
-          <input
+          <label htmlFor="taskDescrption" className="form-label">
+            Description:{" "}
+          </label>
+          <textarea
+            rows={5}
+            className="form-control"
             onChange={this.handleChange}
             id="taskDescrption"
             name="taskDescrption"
             value={this.state.taskDescrption}
+            defaultValue={this.props.description}
           />
 
           <br></br>
 
-          <label htmlFor="taskDeadline">taskDeadline: </label>
+          <label htmlFor="taskDeadline" className="form-label">
+            Deadline:{" "}
+          </label>
           <input
+            className="form-control"
             onChange={this.handleChange}
             id="taskDeadline"
             name="taskDeadline"
             value={this.state.taskDeadline}
+            defaultValue={deadlineIso}
             type="date"
           />
 
           <br></br>
 
-          <label htmlFor="taskAsignee">Assignee: </label>
+          <label htmlFor="taskAsignee" className="form-label">
+            Assignee:{" "}
+          </label>
           <select
             name="taskAssigneeId"
             id="taskAssigneeId"
             onChange={this.handleChange}
+            defaultValue={this.props.assigneeID}
           >
             {this.props.currentMembers.map((member) => {
               return (
                 <option
-                  selected={member._id === this.props.assigneeID ? true : false}
+                  // selected={member._id === this.props.assigneeID ? true : false}
                   value={member._id}
                 >{`${member.firstName} ${member.lastName}`}</option>
               );
@@ -129,25 +141,39 @@ export default class TaskDetails extends Component {
 
           <br></br>
 
-          <label htmlFor="taskStatus">Status: </label>
+          <label htmlFor="taskStatus" className="form-label">
+            Status:{" "}
+          </label>
           <input
+            className="form-control"
             onChange={this.handleChange}
             id="taskStatus"
             name="taskStatus"
             value={this.state.taskStatus}
+            defaultValue={this.props.status}
           />
 
-          <button type="submit">SUBMIT</button>
+          <button type="submit" className="form-control taskDetailsSubmit">
+            SUBMIT
+          </button>
         </form>
-        <button onClick={this.cancelEditMode}>CANCEL</button>
+        <button
+          onClick={this.cancelEditMode}
+          className="form-control taskDetailsCancel"
+        >
+          CANCEL
+        </button>
       </div>
     ) : (
-      <div className="taskDetails">
+      <div className="taskDetails container">
         <h2>Task Name: {this.props.taskName}</h2>
         <ul>
           <li key={1}>Description: {this.props.description}</li>
-          <li key={2}>Deadline: {this.props.deadline}</li>
-          <li key={3}>Assignee ID: {this.props.assigneeID} </li>
+          <li key={2}>Deadline: {deadlineString}</li>
+          <li key={3}>
+            Assignee:{" "}
+            {`${this.props.userObj.firstName} ${this.props.userObj.lastName}`}
+          </li>
           <li key={4}>Status: {this.props.status}</li>
         </ul>
 

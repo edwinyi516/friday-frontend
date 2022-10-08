@@ -1,9 +1,9 @@
-.tasksList {
+.myTasksList {
   border: 2px dotted black;
   /* overflow: hidden; */
 }
 
-.tasksList > ul {
+.myTasksList > ul {
   /* height: calc(100% - 55px); */
   /* overflow-x: hidden; */
   height: 57vh;
@@ -11,7 +11,7 @@
   margin-top: 0;
 }
 
-.tasksList > h2 {
+.myTasksList > h2 {
   box-shadow: 0 4px 2px -2px grey;
   margin-bottom: 5px;
 }

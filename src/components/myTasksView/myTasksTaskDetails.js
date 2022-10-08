@@ -77,7 +77,7 @@ export default class MyTasksTaskDetails extends Component {
 
   render() {
     let content = this.state.editMode ? (
-      <div className="taskDetails">
+      <div className="myTaskDetails">
         <h2>EDIT MODE</h2>
 
         <form onSubmit={this.handleSubmit}>
@@ -124,7 +124,7 @@ export default class MyTasksTaskDetails extends Component {
         <button onClick={this.cancelEditMode}>CANCEL</button>
       </div>
     ) : (
-      <div className="taskDetails">
+      <div className="myTaskDetails">
         <h2>Task Name: {this.props.taskName}</h2>
         <ul>
           <li key={1}>Description: {this.props.description}</li>
@@ -133,7 +133,7 @@ export default class MyTasksTaskDetails extends Component {
           <li key={4}>Status: {this.props.status}</li>
         </ul>
 
-        <div className="taskDetails_editAndDelete">
+        <div className="myTaskDetails_editAndDelete">
           <p onClick={this.activateEditMode}>Edit</p>
           <p>|</p>
           <p onClick={this.handleDelete}>Delete</p>

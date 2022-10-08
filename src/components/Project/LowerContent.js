@@ -43,6 +43,26 @@ class LowerContent extends Component {
         const taskAssignee = res2.find(
           (user) => user._id === res1[0].assigneeID
         );
+
+        //MENTION TO THE TEAM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //first turn currentMembers into an object so that we can check it against the tasks array...
+        const currentMembersObj = {};
+
+        res2.forEach((user) => {
+          currentMembersObj[user._id] = user;
+        });
+
+        console.log(currentMembersObj);
+        //loop over res1, which is the array of tasks, and add a new key on each task that will hold the assignee object.
+        res1.forEach((task) => {
+          if (currentMembersObj[task.assigneeID]) {
+            return (task.userObj = currentMembersObj[task.assigneeID]);
+          }
+        });
+
+        console.log(res1);
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         this.setState({
           tasks: res1,
           task: res1[0],
@@ -166,11 +186,14 @@ class LowerContent extends Component {
   };
 
   render() {
+    console.log("----------inside render----gonna pass to child as props");
+    const task = this.state.task;
     return (
-      <div className="lowerContent">
+      <div className="lowerContent container">
         <div className="lowerContent_topHalf">
           <p>
             <button
+              className="form-control"
               onClick={() => {
                 this.handleTab("tasks");
               }}
@@ -179,14 +202,25 @@ class LowerContent extends Component {
               Tasks{" "}
             </button>
           </p>
-          <p>|</p>
           <p>
             <button
+              className="form-control"
               onClick={() => {
                 this.handleTab("members");
               }}
             >
               Members
+            </button>
+          </p>
+          <p>
+            <button
+              className="form-control"
+              id="createTask"
+              onClick={() => {
+                this.activateCreateTaskForm();
+              }}
+            >
+              Create Task
             </button>
           </p>
         </div>
@@ -195,14 +229,15 @@ class LowerContent extends Component {
           {/* {this.state.tasks} <-- is passing down an array of tasks */}
           {this.state.tasks && this.state.tab === "tasks" && (
             <>
-              <button
+              {/* <button
+                className="form-control"
                 id="createTask"
                 onClick={() => {
                   this.activateCreateTaskForm();
                 }}
               >
                 Create Task
-              </button>
+              </button> */}
 
               <TasksList
                 tasksArray={this.state.tasks}
@@ -213,7 +248,7 @@ class LowerContent extends Component {
               {this.state.createMode === true ? (
                 <div className="taskFormContainer">
                   <button
-                    className="cancelTaskForm"
+                    className="form-control cancelTaskForm"
                     onClick={() => {
                       this.deactivateCreateTaskForm();
                     }}
@@ -221,8 +256,10 @@ class LowerContent extends Component {
                     Cancel
                   </button>
                   <TaskForm
+                    userData={this.props.userData}
                     projectId={this.props._id}
                     handleAddTask={this.handleAddTask}
+                    currentMembers={this.state.currentMembers}
                   />
                 </div>
               ) : (
@@ -250,7 +287,7 @@ class LowerContent extends Component {
                     <p>Which member would you like to add?</p>
 
                     <button
-                      className="cancel"
+                      className="form-control cancel"
                       onClick={() => {
                         this.cancelAddMember();
                       }}
