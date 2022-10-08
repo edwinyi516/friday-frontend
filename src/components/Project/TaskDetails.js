@@ -73,7 +73,7 @@ export default class TaskDetails extends Component {
     let deadlineString = new Date(deadline).toLocaleDateString();
     let deadlineIso = new Date(deadline).toISOString().split("T")[0];
     let content = this.state.editMode ? (
-      <div className="taskDetails container">
+      <div className="taskDetails container" id="projectContainer">
         <h2>EDIT MODE</h2>
 
         <form onSubmit={this.handleSubmit} className="mb-3">
@@ -165,7 +165,7 @@ export default class TaskDetails extends Component {
         </button>
       </div>
     ) : (
-      <div className="taskDetails container">
+      <div className="taskDetails container" id="projectContainer">
         <h2>Task Name: {this.props.taskName}</h2>
         <ul>
           <li key={1}>Description: {this.props.description}</li>
