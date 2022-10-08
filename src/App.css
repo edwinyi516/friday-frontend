@@ -5,10 +5,10 @@
   list-style: none;
 }
 #homepageBody {
-  color:white;
-  background-color: rgb(6,8,64);
-  padding-bottom:300px;
-  }
+  color: white;
+  background-color: rgb(6, 8, 64);
+  padding-bottom: 300px;
+}
 #containers {
   display: flex;
   /* border: solid 2px white; */
@@ -16,7 +16,7 @@
   width: 70%;
   margin: auto;
 }
-.container {
+#projectContainer {
   display: flex;
   flex-direction: column;
   border: groove 1px lightgray;
@@ -62,7 +62,8 @@ footer {
   text-align: center;
   padding: 50px;
 }
-#logInForm, #signUpForm {
-  width:20%;
-  margin:auto;
+#logInForm,
+#signUpForm {
+  width: 20%;
+  margin: auto;
 }
