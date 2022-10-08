@@ -23,7 +23,9 @@
   width: 70%;
   margin: auto;
 }
-
+.lowerHalfMyTasks {
+  display: flex;
+}
 #homeContainer {
   display: flex;
   min-width: 130px;
@@ -36,12 +38,10 @@
   padding: 20px;
   border-radius: 20px;
 }
-
 #projectContainer {
   display: flex;
   flex-direction: column;
   border: groove 1px lightgray;
-  margin: 20px;
   padding-top: 40px;
   border-radius: 20px;
 }

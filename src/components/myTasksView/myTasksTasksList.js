@@ -6,7 +6,7 @@ function MyTasksTasksList(props) {
   console.log(props);
 
   return (
-    <div className="myTasksList">
+    <div className="tasksList container"  id="projectContainer">
       <h2>Tasks:</h2>
       <ul>
         {props.tasksArray.map((task) => {
