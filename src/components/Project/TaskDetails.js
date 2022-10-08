@@ -166,7 +166,7 @@ export default class TaskDetails extends Component {
       </div>
     ) : (
       <div className="taskDetails container" id="projectContainer">
-        <h2>Task Name: {this.props.taskName}</h2>
+        <h2>{this.props.taskName}</h2>
         <ul>
           <li key={1}>Description: {this.props.description}</li>
           <li key={2}>Deadline: {deadlineString}</li>

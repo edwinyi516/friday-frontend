@@ -9,7 +9,7 @@ export default class TaskItem extends Component {
 
     return (
       <div className="taskItem card">
-        <h4>Name: {this.props.taskName}</h4>
+        <h4>{this.props.taskName}</h4>
         <ul>
           {/* <li>Subject</li>  <----- DO WE WANT A SUBJECT? */}
           <li>Deadline: {deadlineString}</li>

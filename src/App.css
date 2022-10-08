@@ -95,3 +95,22 @@ footer {
   width:20%;
   margin:auto;
 }
+
+#props-description {
+  margin-top: -30px;
+}
+
+#dashboard-text {
+  font-family: "Raleway";
+  font-weight: 700;
+}
+
+#dashboard-tasks-text {
+  font-family: "Raleway";
+  font-weight: 700;
+}
+
+#dashboard-task-details-name {
+  font-family: "Raleway";
+  font-weight: 700;
+}

@@ -7,7 +7,7 @@ function MyTasksTasksList(props) {
 
   return (
     <div className="tasksList container" id="projectContainer">
-      <h2>Tasks:</h2>
+      <h2 id="dashboard-tasks-text">Tasks</h2>
       <ul>
         {props.tasksArray.map((task) => {
           return (
