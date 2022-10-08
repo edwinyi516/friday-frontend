@@ -1,5 +1,5 @@
 .projectMember {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   /* width: 80px; */
   position: relative;
   height: 100px;
@@ -58,9 +58,10 @@
 .removeProjectMemberButton {
   cursor: pointer;
   position: absolute;
-  border: dotted 2px blue;
+  /* border: dotted 2px blue; */
   bottom: 0px;
   right: 10px;
+  width: auto;
 }
 
 .removeProjectMemberButton:hover {

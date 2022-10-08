@@ -24,7 +24,7 @@ class TaskForm extends Component {
       deadline: "",
       creatorID: this.props.userData._id,
       status: "",
-      assigneeID: "",
+      assigneeID: this.props.currentMembers[0]._id,
       assigneeName: "",
       allMembers: this.props.currentMembers ? this.props.currentMembers : [],
     };
@@ -160,8 +160,10 @@ class TaskForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="projectID"> </label>
+      <form onSubmit={this.handleSubmit} className="mb-3 taskFormForm">
+        <label htmlFor="projectID" className="form-label">
+          {" "}
+        </label>
         <input
           type="text"
           id="projectID"
@@ -171,7 +173,10 @@ class TaskForm extends Component {
           hidden
         />
         <br />
-        <label htmlFor="taskName"> Task Name (required): </label>
+        <label htmlFor="taskName" className="form-label">
+          {" "}
+          Task Name (required):{" "}
+        </label>
         <input
           type="text"
           id="taskName"
@@ -180,7 +185,13 @@ class TaskForm extends Component {
           value={this.state.taskName}
         />
         <br />
-        <label htmlFor="taskDescription"> Description (required): </label>
+        <label
+          htmlFor="taskDescription"
+          className="form-label taskDescriptiononTaskForm"
+        >
+          {" "}
+          Description (required):{" "}
+        </label>
         <textarea
           rows={5}
           type="text"
@@ -190,7 +201,10 @@ class TaskForm extends Component {
           value={this.state.description}
         />
         <br />
-        <label htmlFor="taskDeadline"> Task Deadline (required): </label>
+        <label htmlFor="taskDeadline" className="form-label">
+          {" "}
+          Task Deadline (required):{" "}
+        </label>
         <input
           type="date"
           id="taskDeadline"
@@ -199,7 +213,7 @@ class TaskForm extends Component {
           value={this.state.deadline}
         />
         <br />
-        <label htmlFor="creatorID"></label>
+        <label htmlFor="creatorID" className="form-label"></label>
         <input
           type="text"
           id="creatorID"
@@ -208,7 +222,10 @@ class TaskForm extends Component {
           value={this.state.creatorID}
           hidden
         />
-        <label htmlFor="taskStatus"> Choose Task Status: </label>
+        <label htmlFor="taskStatus" className="form-label">
+          {" "}
+          Choose Task Status:{" "}
+        </label>
         <select
           defaultValue={"Not Started"}
           name="taskStatus"
@@ -220,7 +237,10 @@ class TaskForm extends Component {
           <option value="Completed">Completed</option>
         </select>
         <br />
-        <label htmlFor="assigneeName"> Assignee Name (required): </label>
+        <label htmlFor="assigneeName" className="form-label">
+          {" "}
+          Assignee Name (required):{" "}
+        </label>
         <select
           name="assigneeName"
           id="assigneeName"
@@ -236,7 +256,7 @@ class TaskForm extends Component {
           })}
         </select>
         <br />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="form-control" />
       </form>
     );
   }

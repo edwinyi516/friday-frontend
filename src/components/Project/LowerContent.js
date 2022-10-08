@@ -32,17 +32,23 @@ class LowerContent extends Component {
       })
       .join("");
 
+    console.log(memberIdQuery);
+
     const fetchTasksUrl = `${this.props.baseURL}/tasks/project/${this.props._id}`;
     const fetchMembersUrl = `${this.props.baseURL}/users/many/users?${memberIdQuery}`;
+    console.log(fetchMembersUrl);
 
     Promise.all([fetch(fetchTasksUrl), fetch(fetchMembersUrl)])
       .then(([res1, res2]) => {
         return Promise.all([res1.json(), res2.json()]);
       })
       .then(([res1, res2]) => {
-        const taskAssignee = res2.find(
-          (user) => user._id === res1[0].assigneeID
-        );
+        let taskAssignee = {};
+        if (res1.length < 1) {
+          console.log("no tasks");
+        } else {
+          taskAssignee = res2.find((user) => user._id === res1[0].assigneeID);
+        }
 
         //MENTION TO THE TEAM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //first turn currentMembers into an object so that we can check it against the tasks array...
