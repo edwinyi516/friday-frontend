@@ -3,10 +3,10 @@ import MyTasksTaskItem from "./myTasksTaskItem";
 import "./myTasksTasksList.css";
 
 function MyTasksTasksList(props) {
-  console.log(props);
+  // console.log(props);
 
   return (
-    <div className="tasksList container"  id="projectContainer">
+    <div className="tasksList container" id="projectContainer">
       <h2>Tasks:</h2>
       <ul>
         {props.tasksArray.map((task) => {

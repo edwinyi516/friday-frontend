@@ -3,7 +3,7 @@ import "./myTasksTaskItem.css";
 
 export default class MyTasksTaskItem extends Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
 
     return (
       <div className="taskItem card">

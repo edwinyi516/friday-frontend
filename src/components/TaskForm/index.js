@@ -104,6 +104,17 @@ class TaskForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    console.log(
+      JSON.stringify({
+        projectID: this.state.projectID,
+        taskName: this.state.taskName,
+        description: this.state.description,
+        deadline: this.state.deadline,
+        creatorID: this.state.creatorID,
+        status: this.state.status || "Not Started",
+        assigneeID: this.state.assigneeID,
+      })
+    );
     // console.log (this.state.assigneeID)
     // console.log(this.state.assigneeName)
     // console.log (JSON.stringify({

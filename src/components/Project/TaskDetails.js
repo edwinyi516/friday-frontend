@@ -20,7 +20,7 @@ export default class TaskDetails extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log("Handling Task Edit Submit --------------------");
-    console.log(e.target);
+    // console.log(e.target);
     const updatedTask = {
       projectID: this.state.projectID,
       taskName: this.state.taskName,
@@ -30,7 +30,7 @@ export default class TaskDetails extends Component {
       assigneeID: this.state.taskAssigneeId,
     };
 
-    console.log(updatedTask);
+    // console.log(updatedTask);
 
     console.log(this.props.baseURL);
 
@@ -43,7 +43,7 @@ export default class TaskDetails extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         window.location.reload();
       });
   };
@@ -63,7 +63,7 @@ export default class TaskDetails extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         window.location.reload();
       });
   };

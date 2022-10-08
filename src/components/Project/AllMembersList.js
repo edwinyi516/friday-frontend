@@ -3,7 +3,7 @@ import "./AllMembersList.css";
 import MemberItem from "./MemberItem";
 
 function AllMembersList(props) {
-  console.log(props);
+  // console.log(props);
 
   return (
     <div className="allMembersList">
