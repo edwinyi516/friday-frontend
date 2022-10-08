@@ -189,7 +189,7 @@ class LowerContent extends Component {
     console.log("----------inside render----gonna pass to child as props");
     const task = this.state.task;
     return (
-      <div className="lowerContent container">
+      <div className="lowerContent container" id="projectContainer">
         <div className="lowerContent_topHalf">
           <p>
             <button

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 let baseURL = "";
 
@@ -12,12 +13,14 @@ if (process.env.REACT_APP_ENVIRONMENT === "production") {
 // let baseURL = process.env.REACT_APP_BACKEND_URL
 
 export default function Signup() {
+  const navigate = useNavigate();
   const [registerFirstName, setRegisterFirstName] = useState("")
   const [registerLastName, setRegisterLastName] = useState("")
   const [registerEmail, setRegisterEmail] = useState("")
   const [registerPassword, setRegisterPassword] = useState("")
 
-  const register = () => {
+  const register = (event) => {
+    event.preventDefault()
     axios({
       method: "POST",
       data: {
@@ -29,7 +32,9 @@ export default function Signup() {
       withCredentials: true,
       url: baseURL + "/register"
     })
-    .then((res) => console.log(res))
+    .then(() => {
+      navigate("/login");
+    });
   }
 
   return (

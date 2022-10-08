@@ -3,7 +3,7 @@ import "./UpperContent.css";
 
 export default function UpperContent(props) {
   return (
-    <div className="upperContent container">
+    <div className="upperContent container" id="projectContainer">
       <div className="upperContent_topHalf">
         <h1 className="projectTitle">Project {props.title}</h1>
         <div className="statusAndDeadline">
