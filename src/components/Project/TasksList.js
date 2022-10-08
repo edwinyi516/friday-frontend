@@ -6,7 +6,7 @@ function TasksList(props) {
   console.log(props);
 
   return (
-    <div className="tasksList">
+    <div className="tasksList container">
       <h2>Tasks:</h2>
       <ul>
         {props.tasksArray.map((task) => {
@@ -14,7 +14,7 @@ function TasksList(props) {
             <li
               key={task._id}
               onClick={() => {
-                props.handleClick(task._id);
+                props.handleClick(task._id); //
               }}
             >
               <TaskItem {...task} />

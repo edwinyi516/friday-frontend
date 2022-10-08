@@ -19,18 +19,18 @@ export default class ProjectMember extends Component {
   render() {
     return (
       <>
-        <div className="projectMember">
+        <div className="myProjectMember">
           {this.state.deleteMode && (
             <div
-              className="projectMemberBackdrop"
+              className="myProjectMemberBackdrop"
               onClick={() => {
                 this.cancelDeleteModal();
               }}
             >
-              <div className="removeProjectMemberModal">
+              <div className="myRemoveProjectMemberModal">
                 <p>Are you sure you want to REMOVE Member?</p>
                 <button
-                  className="cancelRemovingProjectMember"
+                  className="myCancelRemovingProjectMember"
                   onClick={() => {
                     this.cancelDeleteModal();
                   }}
@@ -53,7 +53,7 @@ export default class ProjectMember extends Component {
             <li>E-mail: {this.props.email}</li>
           </ul>
           <p
-            className="removeProjectMemberButton"
+            className="myRemoveProjectMemberButton"
             onClick={() => {
               this.activateDeleteModal();
             }}

@@ -1,32 +1,32 @@
-.lowerContent {
+.myLowerContent {
   border: solid 2px green;
 }
 
-.lowerContent_topHalf {
+.myUpperContent_myTopHalf {
   display: flex;
 }
 
-.lowerContent_topHalf p {
+.myUpperContent_myTopHalf p {
   margin: 2px 2px;
 }
 
-.lowerContent_lowerHalf {
+.myLowerContent_myLowerHalf {
   display: flex;
   justify-content: space-between;
 }
 
-.tasksList,
-.taskDetails {
+.myTasksList,
+.myTaskDetails {
   width: 50%;
 }
 
-#createTask {
+#myCreateTask {
   height: 35px;
   position: absolute;
   right: 55%;
 }
 
-.addMemberBackdrop {
+.myAddMemberBackdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -39,7 +39,7 @@
   /* pointer-events: none; */
 }
 
-.addOrCancelMember {
+.myAddOrCancelMember {
   margin-left: auto;
   margin-right: auto;
   background-color: white;
@@ -49,13 +49,13 @@
   margin-bottom: 15px;
 }
 
-.addMemberBackdrop > button {
+.myAddMemberBackdrop > button {
   position: absolute;
   left: 64%;
   top: 105px;
 }
 
-.cancelTaskForm {
+.myCancelTaskForm {
   /* display: block; */
   height: 40px;
   width: 70px;

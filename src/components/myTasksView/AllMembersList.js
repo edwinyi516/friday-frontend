@@ -6,12 +6,12 @@ function AllMembersList(props) {
   console.log(props);
 
   return (
-    <div className="allMembersList">
+    <div className="myAllMembersList">
       <ul>
         {props.notProjectMembersYet.length !== 0 &&
           props.notProjectMembersYet.map((member) => {
             return (
-              <li className="memberItemLi" key={member._id}>
+              <li className="myMemberItemLi" key={member._id}>
                 <MemberItem
                   {...member}
                   handleSubmitNewMemberToProject={
