@@ -11,7 +11,7 @@ We wanted to create an app to help teams collaborate and keep track of the proje
 * As a user, I want to view all the tasks under a particular project.
 * As a user, I want to add/delete users.
 ### Approach taken
-For the backend, we created three models to handle project details, task details and user details respectively, with each model linked to each other via either project ID or user ID. Each model has all basic RESTful routes and full CRUD.
+For the backend, we created three models to handle project details, task details and user details, with each model linked to each other via either project ID or user ID. Each model has all basic RESTful routes and full CRUD.
 For the front end, we used React to build out the actual pages by fetching/modifying data from the backend.
 We used passport for user authentication. 
 ### Technology used
